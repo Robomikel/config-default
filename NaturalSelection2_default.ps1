@@ -34,13 +34,13 @@ Function New-LaunchScriptNS2serverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir"
     #                       Server Log
-    $global:consolelog             = "console.log"
+    $global:consolelog      = "console.log"
     #                       Game-Server-Config Directory
     $global:gamedirname     = "NaturalSelection2"
     #                       Game-Server-Config
     $global:servercfg       = "server.txt"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable -name `"${hostname}`" -port ${port} -webadmin -webdomain ${ip} -webuser admin -webpassword `"${rconpassword}`" -webport 8080 -map ${defaultmap} -limit ${maxplayers} -config_path $servercfgdir\server.txt -logdir `"`" -modstorage `"Workshop`" -mods `"`" -condebug")'
+    $global:launchParams    = '@("${executable} -name `"${hostname}`" -port ${port} -webadmin -webdomain ${ip} -webuser admin -webpassword `"${rconpassword}`" -webport 8080 -map ${defaultmap} -limit ${maxplayers} -config_path $servercfgdir\server.txt -logdir `"`" -modstorage `"Workshop`" -mods `"`" -condebug")'
     # Get User Input version must be set to 0
     Get-UserInput
 }

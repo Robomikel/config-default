@@ -32,13 +32,13 @@ Function New-LaunchScriptBOserverPS {
     #                               Log Directory
     $global:logdirectory            = "$serverdir"
     #                               Server Log
-    $global:consolelog                     = "console.log"
+    $global:consolelog              = "console.log"
     #                               Game-Server-Config Directory
     $global:gamedirname             = "BallisticOverkill"
     #                               Game-Server-Config
     $global:servercfg               = "config.txt"
     #                               Server Launch Command
-    $global:launchParams            = '@("$executable -batchmode -nographics -dedicated ")'  
+    $global:launchParams            = '@("${executable} -batchmode -nographics -dedicated ")'  
     # Get User Input version must be set to 0
     Get-UserInput
     # Download Game-Server-Config

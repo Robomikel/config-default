@@ -24,14 +24,14 @@ Function New-LaunchScriptVanguard1944serverPS {
   $global:process       = "vanguardserver"
   #                     Log Directory
   $global:logdirectory  = "$serverdir"
-  #                      Server Log
-  $global:consolelog            = "server.log"
+  #                     Server Log
+  $global:consolelog    = "server.log"
   #                     Game-Server-Config Directory 
   $global:gamedirname   = ""
   #                     Game-Server-Config
   $global:servercfg     = "server.cfg"
   #                     Server Launch Command
-  $global:launchParams  = '@("$executable -console +sv_servername=`"${hostname}`" -condebug")'
+  $global:launchParams  = '@("${executable} -console +sv_servername=`"${hostname}`" -condebug")'
   # Get User Input version must be set to 0
   Get-UserInput
 }   

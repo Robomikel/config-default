@@ -16,11 +16,11 @@ Function New-LaunchScriptArma3serverPS {
     #                       Server Password
     $global:serverpassword  = ""
     #                       Admin Password
-    $global:adminpassword   = "$global:RANDOMPASSWORD"
+    $global:adminpassword   = "$RANDOMPASSWORD"
     #                       Rcon Port
     $global:rconport        = "2301"
     #                       Rcon Password
-    $global:rconpassword    = "$global:RANDOMPASSWORD"
+    $global:rconpassword    = "$RANDOMPASSWORD"
     #                       Mods
     $global:mods            = " "
     # $mods                 ="Mods\1351712613;Mods\1355481562;Mods\1374639840;Mods\1439779114;Mods\333310405;Mods\450814997;Mods\463939057;Mods\549676314;Mods\773125288;Mods\773131200;Mods\843425103;Mods\843577117;Mods\843593391;Mods\497660133"
@@ -52,7 +52,7 @@ Function New-LaunchScriptArma3serverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir\SC"
     #                       Server Log
-    $global:consolelog             = "arma3server_*.rpt"
+    $global:consolelog      = "arma3server_*.rpt"
     #                       Game-Server-Config Directory 
     $global:gamedirname     = "Arma3"
     #                       Game-Server-Config
@@ -60,7 +60,7 @@ Function New-LaunchScriptArma3serverPS {
     #                       Game-Server-Config
     $global:config2         = "network.cfg"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable -ip=${ip} -port=${port} -cfg=$servercfgdir\network.cfg -config=$servercfgdir\server.cfg -mod=$mods -servermod=$servermods -bepath=$serverdir\battleye\ -profiles=SC -name=SC -loadmissiontomemory")'
+    $global:launchParams    = '@("${executable} -ip=${ip} -port=${port} -cfg=${servercfgdir}\network.cfg -config=${servercfgdir}\${servercfg} -mod=${mods} -servermod=${servermods} -bepath=${serverdir}\battleye\ -profiles=SC -name=SC -loadmissiontomemory")'
       # Get User Input version must be set to 0
     Get-UserInput
     # Download Game-Server-Config
@@ -77,6 +77,6 @@ Function Get-InstallChangesArma3 {
     Add-Content   $serverdir\battleye\BEServer.cfg "RConPassword $RCONPASSWORD"
     Add-Content   $serverdir\battleye\BEServer.cfg "RConIP 127.0.0.1"
     Add-Content   $serverdir\battleye\BEServer.cfg "RConPort $RCONPORT"
-    ((Get-Content -path $servercfgdir\server.cfg -Raw) -replace '\b32\b', "$maxplayers") | Set-Content -Path $servercfgdir\server.cfg  
-    ((Get-Content -path $servercfgdir\server.cfg -Raw) -replace "\barma3pass\b", "$SERVERPASSWORD") | Set-Content -Path $servercfgdir\server.cfg
+    ((Get-Content -path $servercfgdir\${servercfg} -Raw) -replace '\b32\b', "$maxplayers") | Set-Content -Path $servercfgdir\${servercfg} 
+    ((Get-Content -path $servercfgdir\${servercfg} -Raw) -replace "\barma3pass\b", "$SERVERPASSWORD") | Set-Content -Path $servercfgdir\${servercfg}
 }

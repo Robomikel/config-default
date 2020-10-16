@@ -38,13 +38,13 @@ Function New-LaunchScriptFOFserverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir\fof"
     #                       Server Log
-    $global:consolelog             = "console.log"
+    $global:consolelog      = "console.log"
     #                       Game-Server-Config Directory
     $global:gamedirname     = "FistfulofFrags"
     #                       Game-Server-Config
     $global:servercfg       = "server.cfg"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable -game fof -console -strictportbind -ip ${ip} -port ${port} +clientport ${clientport} +tv_port ${sourcetvport} +map ${defaultmap} +servercfgfile server.cfg -maxplayers ${maxplayers} -condebug")'
+    $global:launchParams    = '@("${executable} -game fof -console -strictportbind -ip ${ip} -port ${port} +hostname `"${hostname}`" +clientport ${clientport} +tv_port ${sourcetvport} +map ${defaultmap} +servercfgfile ${servercfg} -maxplayers ${maxplayers} -condebug")'
     # Get User Input version must be set to 0
     Get-UserInput
     # Download Game-Server-Config

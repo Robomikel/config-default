@@ -19,9 +19,9 @@
     #                       Log Directory
     $global:logdirectory    = "$serverdir"
     #                       Server Log
-    $global:consolelog             = "ia-server.log"
+    $global:consolelog      = "ia-server.log"
     #                       Server Config Directory
     $global:servercfgdir    = "$serverdir\iron\default-cfg-server\servercfg.toml"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable -c --console")'
+    $global:launchParams    = '@("${executable} -c --console")'
 }

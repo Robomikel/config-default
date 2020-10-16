@@ -4,7 +4,8 @@ Function  New-LaunchScriptSE4serverPS {
     # http://snipereliteadmin.com/#!/SE4DedicatedServerSetup  
     ################## Change Default Variables #################
 
-
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     ##############################/\##############################
     
     # Server.AuthPort 8701
@@ -29,13 +30,13 @@ Function  New-LaunchScriptSE4serverPS {
     #                           Log Directory
     $global:logdirectory        = "$serverdir"
     #                           Server Log
-    $global:consolelog                 = "dedicated_console.txt"
+    $global:consolelog          = "dedicated_console.txt"
     #                           Game-Server-Config Directory
     $global:gamedirname         = ""
     #                           Game-Server-Config
     $global:servercfg           = "server.cfg"
     #                           Server Launch Command
-    $global:launchParams        = '@("$executable exec $servercfgdir\Server.cfg -logdir=$serverdir")'
+    $global:launchParams        = '@("${executable} exec ${servercfgdir}\${servercfg} -logdir=${serverdir}")'
     # Get User Input version must be set to 0
     Get-UserInput
     # Install Adjustment
@@ -43,10 +44,11 @@ Function  New-LaunchScriptSE4serverPS {
 }
 
 Function New-servercfgse4 {
-    New-Item $servercfgdir\Server.cfg -ItemType File -Force
+    New-Item $servercfgdir\Server.cfg -ItemType File -Force | Out-File -Append -Encoding Default  $ssmlog
     Add-Content $servercfgdir\Server.cfg `
 "
-Server.Name Team Deathmatch - Map voting / Hardcore
+Server.Name $hostname
+//Server.Name Team Deathmatch - Map voting / Hardcore
 Server.MoTD Welcome to Sniper Elite 4
 
 Settings.MaxPlayers 12

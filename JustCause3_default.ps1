@@ -28,14 +28,14 @@ Function New-LaunchScriptjc3serverPS {
     $global:process       = "Server"
     #                     Log Directory
     $global:logdirectory  = "$serverdir\logs"
-    #                       Server Log
-    $global:consolelog             = "Server.log"
+    #                     Server Log
+    $global:consolelog    = "Server.log"
     #                     Game-Server-Config Directory
     $global:gamedirname   = "JustCause3"
     #                     Game-Server-Config
     $global:servercfg     = "config.json"
     #                     Server Launch Command
-    $global:launchParams  = '@("$executable")'
+    $global:launchParams  = '@("${executable}")'
     # Get User Input version must be set to 0
     Get-UserInput
     # Download Game-Server-Config

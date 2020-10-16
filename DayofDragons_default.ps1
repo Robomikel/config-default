@@ -26,13 +26,13 @@ Function New-LaunchScriptDofDserverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir"
     #                       Server Log
-    $global:consolelog             = "Dragons.log"  
+    $global:consolelog      = "Dragons.log"  
     #                       Game-Server-Config Directory
     $global:gamedirname     = ""
     #                       Game-Server-Config
     $global:servercfg       = "Game.ini"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable -SteamServerName=`"${hostname}`" -log")'
+    $global:launchParams    = '@("${executable} -SteamServerName=`"${hostname}`" -log")'
     # Get User Input version must be set to 0
     Get-UserInput
 } 

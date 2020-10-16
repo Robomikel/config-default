@@ -26,11 +26,11 @@ Function New-LaunchScriptSpacecImpossibleserverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir\SIDedicatedServer_Data"
     #                       Server Log
-    $global:consolelog             = ""
+    $global:consolelog      = ""
     #                       Game-Server-Config Directory
     $global:gamedirname     = ""
     #                       Game-Server-Config
     $global:servercfg       = "serverconfig.txt"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable -config serverconfig.txt -console -batchmode -nographics -LOG")'
+    $global:launchParams    = '@("${executable} -config ${servercfg} -console -batchmode -nographics -LOG")'
   }   

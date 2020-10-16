@@ -21,7 +21,7 @@ Function New-LaunchScriptZPSserverPS {
     #                       Rcon Password
     $global:rconpassword    = "$RANDOMPASSWORD"
     #                       Game Server Token required for public servers
-    $global:gslt            = "GameServerTokenHere"
+    $global:gslt            = ""
     ##############################/\##############################
     
     ##################### Do not change below #####################
@@ -39,14 +39,19 @@ Function New-LaunchScriptZPSserverPS {
     $global:process           = "zps"
     #                         Log Directory
     $global:logdirectory      = "$serverdir\zps"
-    #                       Server Log
-    $global:consolelog             = "console.log"
+    #                         Server Log
+    $global:consolelog        = "console.log"
     #                         Game-Server-Config Directory
     $global:gamedirname       = "ZombiePanicSource"
     #                         Game-Server-Config
     $global:servercfg         = "server.cfg"
     #                         Server Launch Command
-    $global:launchParams      = '@("$executable -console -game zps -strictportbind -ip ${ip} -port ${port} +clientport ${clientport} +tv_port ${sourcetvport} +map ${defaultmap} +servercfgfile server.cfg -maxplayers ${maxplayers} -condebug")'
+    If ($gslt) {
+      $global:launchParams      = '@("${executable} -console -game zps -strictportbind -ip ${ip} -port ${port} +hostname `"${hostname}`" +clientport ${clientport} +tv_port ${sourcetvport} +map ${defaultmap} +servercfgfile ${servercfg} -maxplayers ${maxplayers} -condebug")'
+    }
+    Else {
+      $global:launchParams      = '@("${executable} -console -game zps -strictportbind -ip ${ip} -port ${port} +hostname `"${hostname}`" +clientport ${clientport} +tv_port ${sourcetvport} +map ${defaultmap} +servercfgfile ${servercfg} -maxplayers ${maxplayers} -condebug")'
+    }
     # Get User Input version must be set to 0
     Get-UserInput
     # Download Game-Server-Config

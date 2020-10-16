@@ -31,13 +31,13 @@ Function New-LaunchScriptAoCserverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir\ageofchivalry"
     #                       Server Log
-    $global:consolelog             = "console.log"
+    $global:consolelog      = "console.log"
     #                       Game-Server-Config Directory 
     $global:gamedirname     = "AgeOfChivalry"
     #                       Game-Server-Config
     $global:servercfg       = "server.cfg"    
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable -console -game ageofchivalry -secure +map ${defaultmap} -autoupdate +log on +maxplayers ${maxplayers} -port ${port} +ip ${ip} +exec server.cfg -condebug")'
+    $global:launchParams    = '@("${executable} -console -game ageofchivalry -secure +map ${defaultmap} -autoupdate +log on +maxplayers ${maxplayers} -port ${port} +ip ${ip} +exec ${servercfg} -condebug")'
       # Get User Input version must be set to 0
     Get-UserInput
     # Download Game-Server-Config

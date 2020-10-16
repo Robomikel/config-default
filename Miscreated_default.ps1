@@ -38,18 +38,17 @@ Function New-LaunchScriptMiscreatedPS {
         #                       Log Directory 
         $global:logdirectory    = "$serverdir"
         #                       Server Log
-        $global:consolelog             = "server.log"        
+        $global:consolelog      = "server.log"        
         #                       Game-Server-Config Directory
         $global:gamedirname     = ""
         #                       Game-Server-Config
         $global:servercfg       = "HOSTING.CFG"
         #                       Server Launch Command
-        $global:launchParams    = '@("$executable +sv_bind ${ip} +sv_maxplayers ${maxplayers} +map islands -sv_port ${port} +http_startserver -mis_gameserverid 100")'
+        $global:launchParams    = '@("${executable} +sv_bind ${ip} +sv_maxplayers ${maxplayers} +map islands -sv_port ${port} +http_startserver +sv_servername=`"${hostname}`" -mis_gameserverid 100")'
         # Get User Input version must be set to 0
         Get-UserInput
         # Install Adjustment         
-        Write-Host '*** Creating HOSTING.CFG *****' -ForegroundColor Magenta -BackgroundColor Black 
-        New-Item $servercfgdir\HOSTING.CFG -Force
+        New-Item $servercfgdir\HOSTING.CFG -Force | Out-File -Append -Encoding Default  $ssmlog
         Add-Content -Path $servercfgdir\HOSTING.CFG -Value "sv_servername=`"$hostname`""
         Add-Content -Path $servercfgdir\HOSTING.CFG -Value "http_password=$RCONPASSWORD"
         Add-Content -Path $servercfgdir\HOSTING.CFG -Value  "g_pinglimit=1000"

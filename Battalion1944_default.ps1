@@ -27,13 +27,13 @@ Function New-LaunchScriptBT1944serverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir\Windows\Battalion\Saved\Logs"
     #                       Server Log
-    $global:consolelog             = ""  
+    $global:consolelog      = ""  
     #                       Game-Server-Config Directory 
     $global:gamedirname     = "Battalion1944"
     #                       Game-Server-Config
     $global:servercfg       = "DefaultGame.ini"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable  /Game/Maps/Final_Maps/Derailed?Game=/Script/ShooterGame.WartideGameMode?listen -broadcastip=`"${extip}`" -PORT=${port} -QueryPort=${queryport} -log -defgameini=`"..\..\..\DefaultGame.ini`"")'
+    $global:launchParams    = '@("${executable}  /Game/Maps/Final_Maps/Derailed?Game=/Script/ShooterGame.WartideGameMode?listen -broadcastip=`"${extip}`" -PORT=${port} -QueryPort=${queryport} -log -defgameini=`"..\..\..\DefaultGame.ini`"")'
     # Get User Input version must be set to 0
     Get-UserInput
     # Download Game-Server-Config

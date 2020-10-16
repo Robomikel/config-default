@@ -14,7 +14,7 @@ Function New-LaunchScriptInsserverPS {
     #                       Tickrate
     $global:tickrate        = "64"
     #                       Game Server Token
-    $global:gslt            = "GameServerTokenHere"
+    $global:gslt            = ""
     #                       Map
     $global:defaultmap      = "buhriz_coop checkpoint"
     #                       Maxplayers
@@ -49,13 +49,18 @@ Function New-LaunchScriptInsserverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir\insurgency"
     #                       Server Log
-    $global:consolelog             = "console.log"
-    #                       Server Launch Command
-    $global:launchParams    = '@("$executable -game insurgency -strictportbind -ip ${ip} -port ${port} +clientport ${clientport} +tv_port ${sourcetvport} -tickrate ${tickrate} +sv_setsteamaccount ${gslt} +map ${defaultmap} -maxplayers ${maxplayers} +sv_lan ${sv_lan} +mp_coop_lobbysize ${coopplayers} +sv_workshop_enabled ${workshop} +sv_pure ${sv_pure} -condebug -norestart")'
+    $global:consolelog      = "console.log"
     #                       Game-Server-Config Directory
     $global:gamedirname     = "Insurgency"
     #                       Game-Server-Config
     $global:servercfg       = "server.cfg"
+    #                       Server Launch Command
+    If ($gslt) {
+        $global:launchParams = '@("${executable} -game insurgency -strictportbind -ip ${ip} -port ${port} +hostname `"$hostname`" +clientport ${clientport} +tv_port ${sourcetvport} -tickrate ${tickrate} +sv_setsteamaccount ${gslt} +map ${defaultmap} +servercfgfile ${servercfg} -maxplayers ${maxplayers} +sv_lan ${sv_lan} +mp_coop_lobbysize ${coopplayers} +sv_workshop_enabled ${workshop} `"+sv_pure ${sv_pure}`" -condebug -norestart")'
+    }
+    Else {
+        $global:launchParams = '@("${executable} -game insurgency -strictportbind -ip ${ip} -port ${port} +hostname `"$hostname`" +clientport ${clientport} +tv_port ${sourcetvport} -tickrate ${tickrate} +map ${defaultmap} +servercfgfile ${servercfg} -maxplayers ${maxplayers} +sv_lan ${sv_lan} +mp_coop_lobbysize ${coopplayers} +sv_workshop_enabled ${workshop} `"+sv_pure ${sv_pure}`" -condebug -norestart")'
+    }
     # Get User Input version must be set to 0
     Get-UserInput
     # Download Game-Server-Config
@@ -69,44 +74,56 @@ Function New-LaunchScriptInsserverPS {
 
 
 Function Get-InstallChangesINS {
-    Write-Host "***  Creating subscribed_file_ids.txt ***" -ForegroundColor Magenta -BackgroundColor Black
-    New-Item $serverdir\insurgency\subscribed_file_ids.txt -Force
-    Write-Host "***  Creating motd.txt ***" -ForegroundColor Magenta -BackgroundColor Black
-    New-Item $serverdir\insurgency\motd.txt -Force
-     
+    $subscribedfileids = "$serverdir\insurgency\subscribed_file_ids.txt"
+    Add-Content $ssmlog "[$loggingDate] Creating subscribed_file_ids.txt "
+    If (Test-Path $subscribedfileids) { 
+        Add-Content $ssmlog "[$loggingDate] subscribed_file_ids.txt exists! "
+    } 
+    Else {
+        New-Item $subscribedfileids -Force | Out-File -Append -Encoding Default  $ssmlog
+    }
+    
+    $mapcycletxtfile = "$serverdir\insurgency\motd.txt"
+    Add-Content $ssmlog "[$loggingDate] $serverdir\insurgency\motd.txt "
+    If (Test-Path $mapcycletxtfile) { 
+        Add-Content $ssmlog "[$loggingDate] motd.txt exists! "
+    }
+    Else {
+        New-Item $mapcycletxtfile -Force | Out-File -Append -Encoding Default  $ssmlog
+    }    
 }
 Function Get-Playlist {
-    Write-Host "Checking playlist" -ForegroundColor Yellow
+    Write-Host "Checking playlist" 'info'
     if ($playlist -eq "comp") {
-        Write-Host "edit nwi/$playlist in server.cfg" -ForegroundColor Magenta
+        Get-Infomessage "edit nwi/$playlist in server.cfg" 'info'
         ((Get-Content -path $servercfgdir\server.cfg -Raw) -replace "//mapcyclefile `"mapcycle.txt`"", "mapcyclefile `"mapcycle_comp.txt`"") | Set-Content -Path $servercfgdir\server.cfg
     }
     elseif ($playlist -eq "coop") {
-        Write-Host "edit nwi/$playlist in server.cfg" -ForegroundColor Magenta
+        Get-Infomessage "edit nwi/$playlist in server.cfg" 'info'
         ((Get-Content -path $servercfgdir\server.cfg -Raw) -replace "//mapcyclefile `"mapcycle.txt`"", "mapcyclefile `"mapcycle_cooperative.txt`"") | Set-Content -Path $servercfgdir\server.cfg
     }
     elseif ($playlist -eq "coop_elite") {
-        Write-Host "edit nwi/$playlist in server.cfg" -ForegroundColor Magenta
+        Get-Infomessage "edit nwi/$playlist in server.cfg" 'info'
         ((Get-Content -path $servercfgdir\server.cfg -Raw) -replace "//mapcyclefile `"mapcycle.txt`"", "mapcyclefile `"mapcycle_cooperative.txt`"") | Set-Content -Path $servercfgdir\server.cfg
     }
     elseif ($playlist -eq "coop_hardcore") {
-        Write-Host "edit nwi/$playlist in server.cfg" -ForegroundColor Magenta
+        Get-Infomessage "edit nwi/$playlist in server.cfg" 'info'
         ((Get-Content -path $servercfgdir\server.cfg -Raw) -replace "//mapcyclefile `"mapcycle.txt`"", "mapcyclefile `"mapcycle_cooperative.txt`"") | Set-Content -Path $servercfgdir\server.cfg
     }
     elseif ($playlist -eq "pvp_sustained") {
-        Write-Host "edit nwi/$playlist in server.cfg" -ForegroundColor Magenta
+        Get-Infomessage "edit nwi/$playlist in server.cfg" 'info'
         ((Get-Content -path $servercfgdir\server.cfg -Raw) -replace "//mapcyclefile `"mapcycle.txt`"", "mapcyclefile `"mapcycle_sustained_combat.txt`"") | Set-Content -Path $servercfgdir\server.cfg
     }
     elseif ($playlist -eq "pvp_tactical") {
-        Write-Host "edit nwi/$playlist in server.cfg" -ForegroundColor Magenta
+        Get-Infomessage "edit nwi/$playlist in server.cfg" 'info'
         ((Get-Content -path $servercfgdir\server.cfg -Raw) -replace "//mapcyclefile `"mapcycle.txt`"", "mapcyclefile `"mapcycle_tactical_operations.txt`"") | Set-Content -Path $servercfgdir\server.cfg
     }
     elseif ($playlist -eq "conquer") {
-        Write-Host "edit nwi/$playlist in server.cfg" -ForegroundColor Magenta
+        Get-Infomessage "edit nwi/$playlist in server.cfg" 'info'
         ((Get-Content -path $servercfgdir\server.cfg -Raw) -replace "//mapcyclefile `"mapcycle.txt`"", "mapcyclefile `"mapcycle_conquer.txt`"") | Set-Content -Path $servercfgdir\server.cfg
     }
     elseif ($null -eq $playlist) {
-        Write-Host "entered blank or null" -ForegroundColor Red
+        Get-Infomessage "entered blank or null" 'info'
     }
 }
                 
@@ -122,12 +139,12 @@ Function Set-Gamemode {
     Write-Host "conquer" -ForegroundColor Yellow
     $playlist = Read-Host "Enter mode, Will add Mapcycle per mode"
     if (($playlist -eq "comp") -or ($playlist -eq "coop") -or ($playlist -eq "coop_elite") -or ($playlist -eq "coop_hardcore") -or ($playlist -eq "pvp_sustained") -or ($playlist -eq "pvp_tactical") -or ($playlist -eq "conquer")) {
-        Write-Host "Editing nwi/$playlist playlist in server.cfg" -ForegroundColor Magenta
+        Get-Infomessage "Editing nwi/$playlist playlist in server.cfg" 'info'
         ((Get-Content -path $servercfgdir\server.cfg -Raw) -replace "sv_playlist `"nwi/coop`"", "sv_playlist `"nwi/$playlist`"") | Set-Content -Path $servercfgdir\server.cfg
-        Get-Playlist
+        # Get-Playlist
     }
     else {
-        Write-Host " listed modes does not exist" -ForegroundColor Yellow
+        Get-Infomessage " listed modes does not exist" 'info'
         Set-Gamemode 
     }
 }

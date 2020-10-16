@@ -37,13 +37,13 @@ Function New-LaunchScriptSCPSecretLaboratoryserverPS {
     #                           Log Directory
     $global:logdirectory        = "$env:APPDATA\SCP Secret Laboratory\ServerLogs\$port"
     #                           Server Log
-    $global:consolelog                 = "*.txt"
+    $global:consolelog          = "*.txt"
     #                           Game-Server-Config Directory
     $global:gamedirname         = ""
     #                           Game-Server-Config
     $global:servercfg           = ""
     #                           Server Launch Command
-    $global:launchParams        = '@("$executable ${port}")'
+    $global:launchParams        = '@("${executable} ${port}")'
     # Get User Input version must be set to 0
     Get-UserInput
 }   

@@ -40,13 +40,13 @@ Function New-LaunchScriptStormworksserverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir"
     #                       Server Log
-    $global:consolelog             = ""
+    $global:consolelog      = ""
     #                       Game-Server-Config Directory
     $global:gamedirname     = ""
     #                       Game-Server-Config
     $global:servercfg       = "server_config.xml"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable")'
+    $global:launchParams    = '@("${executable}")'
     # Get User Input version must be set to 0
     Get-UserInput
 }

@@ -37,13 +37,13 @@ Function New-LaunchScriptSvenCoopserverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir"
     #                       Server Log
-    $global:consolelog             = "console-*.log"
+    $global:consolelog      = "console-*.log"
     #                       Game-Server-Config Directory
     $global:gamedirname     = "SvenCoop"
     #                       Game-Server-Config
     $global:servercfg       = "server.cfg"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable -console -game svencoop -strictportbind +ip ${ip} -port ${port} +clientport ${clientport} +map ${defaultmap} +servercfgfile server.cfg +maxplayers ${maxplayers} -condebug")'
+    $global:launchParams    = '@("${executable} -console -game svencoop -strictportbind +ip ${ip} -port ${port} +hostname `"${hostname}`" +clientport ${clientport} +map ${defaultmap} +servercfgfile ${servercfg} +maxplayers ${maxplayers} -condebug")'
     # Get User Input version must be set to 0
     Get-UserInput
     # Download Game-Server-Config

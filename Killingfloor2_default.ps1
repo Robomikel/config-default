@@ -38,7 +38,7 @@ Function New-LaunchScriptKF2serverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir\KFGame\Logs"
     #                       Server Log
-    $global:consolelog             = "Launch.log"
+    $global:consolelog      = "Launch.log"
     #                       Game-Server-Config Directory
     $global:gamedirname     = "KillingFloor2"
     #                       Game-Server-Config
@@ -48,7 +48,7 @@ Function New-LaunchScriptKF2serverPS {
     $global:config4         = "LinuxServer-KFInput.ini"
     $global:config5         = "LinuxServer-KFSystemSettings.ini"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable ${defaultmap}?Game=${gamemode}?Difficulty=${diff}? -Port=${port} -QueryPort=${queryport}")'
+    $global:launchParams    = '@("${executable} ${defaultmap}?Game=${gamemode}?Difficulty=${diff}? -Port=${port} -QueryPort=${queryport}")'
     # Get User Input version must be set to 0
     Get-UserInput
     # Install Adjustment
@@ -57,18 +57,22 @@ Function New-LaunchScriptKF2serverPS {
     Set-Location $servercfgdir
     Get-ChildItem -Filter "LinuxServer-*.ini" -Recurse | Rename-Item -NewName { $_.name -replace 'LinuxServer', 'PCServer' } -Force
     Set-Location $serverdir
-    Write-Host "***  starting Server before Setting PCServer-KFGame.ini Please Wait ***" -ForegroundColor Magenta -BackgroundColor Black
-    .\KF2Server.bat
-    timeout 5
-    Write-Host "***  stopping Server before Setting PCServer-KFGame.ini Please Wait ***" -ForegroundColor Magenta -BackgroundColor Black
+    Get-Infomessage "***  starting Server before Setting PCServer-KFGame.ini Please Wait ***" 'info'
+    Start-Process cmd "/c KF2Server.bat"
+    while (!(Get-Process $process -ea SilentlyContinue )) {
+        Wait-process -Name $process -Timeout 45 >$null 2>&1
+    }
+    Get-Infomessage "***  stopping Server before Setting PCServer-KFGame.ini Please Wait ***" 'info'
     Get-StopServer
-    Write-Host "***  Editing Default Server Name PCServer-KFGame.ini ***" -ForegroundColor Magenta -BackgroundColor Black
+    Get-Infomessage "***  Editing Default Server Name PCServer-KFGame.ini ***" 'info'
     ((Get-Content -path $servercfgdir\PCServer-KFGame.ini -Raw) -replace "\bKilling Floor 2 Server\b", "$hostname") | Set-Content -Path $servercfgdir\PCServer-KFGame.ini
-    Write-Host "***  Adding ADMIN PASSWORD PCServer-KFGame.ini ***" -ForegroundColor Magenta -BackgroundColor Black
+    Get-Infomessage "***  Adding ADMIN PASSWORD PCServer-KFGame.ini ***" 'info'
     ((Get-Content -path $servercfgdir\PCServer-KFGame.ini -Raw) -replace "AdminPassword=", "AdminPassword=$ADMINPASSWORD") | Set-Content -Path $servercfgdir\PCServer-KFGame.ini
-    Write-Host "***  Enabling Webmin in KFWeb.ini ***" -ForegroundColor Magenta -BackgroundColor Black
+    Get-Infomessage "***  Enabling Webmin in KFWeb.ini ***" 'info'
     ((Get-Content -path $servercfgdir\KFWeb.ini -Raw) -replace "\bbEnabled=false\b", "bEnabled=true") | Set-Content -Path $servercfgdir\KFWeb.ini
-    Write-Host "***  Disabling Takeover PCServer-KFEngine.ini ***" -ForegroundColor Magenta -BackgroundColor Black
+    Get-Infomessage "***  Disabling Takeover PCServer-KFEngine.ini ***" 'info'
     ((Get-Content -path $servercfgdir\PCServer-KFEngine.ini -Raw) -replace "\bbUsedForTakeover=TRUE\b", "bUsedForTakeover=FALSE") | Set-Content -Path $servercfgdir\PCServer-KFEngine.ini
+    #                       Game-Server-Config
+    $global:servercfg       = "PCServer-KFGame.ini"
     Set-Location $currentdir
 }

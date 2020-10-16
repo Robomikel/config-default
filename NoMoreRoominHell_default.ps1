@@ -13,7 +13,7 @@ Function New-LaunchScriptNMRIHserverPS {
     #                       Source TV Port
     $global:sourcetvport    = "27020"
     #                       Game Server Token (required)
-    $global:gslt            = "GameServerTokenHere"
+    $global:gslt            = ""
     #                       Map
     $global:defaultmap      = "nmo_broadway"
     #                       Maxplayers
@@ -42,13 +42,18 @@ Function New-LaunchScriptNMRIHserverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir\nmrih"
     #                       Server Log
-    $global:consolelog             = "console.log"
+    $global:consolelog      = "console.log"
     #                       Game-Server-Config Directory
     $global:gamedirname     = "NoMoreRoominHell"
     #                       Game-Server-Config
     $global:servercfg       = "server.cfg"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable -console -game nmrih -strictportbind -ip ${ip} -port ${port} +clientport ${clientport} +tv_port ${sourcetvport} +map ${defaultmap} +sv_setsteamaccount ${gslt} +servercfgfile server.cfg -maxplayers ${maxplayers} -condebug")'
+    If ($glst) {
+        $global:launchParams    = '@("${executable} -console -game nmrih -strictportbind -ip ${ip} -port ${port} +hostname `"${hostname}`" +clientport ${clientport} +tv_port ${sourcetvport} +map ${defaultmap} +sv_setsteamaccount ${gslt} +servercfgfile ${servercfg} -maxplayers ${maxplayers} -condebug")'
+    } 
+    Else {
+        $global:launchParams    = '@("${executable} -console -game nmrih -strictportbind -ip ${ip} -port ${port} +hostname `"${hostname}`" +clientport ${clientport} +tv_port ${sourcetvport} +map ${defaultmap} +servercfgfile ${servercfg} -maxplayers ${maxplayers} -condebug")'
+    }
     # Get User Input version must be set to 0
     Get-UserInput
     # Download Game-Server-Config

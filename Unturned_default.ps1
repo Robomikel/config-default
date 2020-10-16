@@ -25,13 +25,13 @@ Function New-LaunchScriptunturnedserverPS {
     #                           Log Directory
     $global:logdirectory        = "$serverdir\Logs"
     #                           Server Log
-    $global:consolelog                 = "Server_$hostname.log"
+    $global:consolelog          = "Server_$hostname.log"
     #                           Game-Server-Config Directory
     $global:gamedirname         = ""
     #                           Game-Server-Config
     $global:servercfg           = "Commands.dat"
     #                           Server Launch Command
-    $global:launchParams        = '@("$executable -batchmode -nographics -Port ${port} +InternetServer/${hostname}")'
+    $global:launchParams        = '@("${executable} -batchmode -nographics -Port ${port} +InternetServer/${hostname}")'
     # Get User Input version must be set to 0
     Get-UserInput
 }

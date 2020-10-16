@@ -14,7 +14,7 @@ Function New-LaunchScriptMEserverPS {
   #                       World Name
   $global:worldname       = "WorldName"
   #                       scenario
-  $global:scenario      = "ArenaStart"
+  $global:scenario        = "ArenaStart"
   ##############################/\##############################
   # - Scenario - 
   # ArenaStart
@@ -60,7 +60,7 @@ Function New-LaunchScriptMEserverPS {
   #                       Log Directory
   $global:logdirectory    = "$env:APPDATA\$saves"
   #                       Server Log
-  $global:consolelog             = "MedievalEngineersDedicated.log"
+  $global:consolelog      = "MedievalEngineersDedicated.log"
   #                       Game-Server-Config Directory
   $global:gamedirname     = ""
   #                       Game-Server-Config
@@ -68,20 +68,15 @@ Function New-LaunchScriptMEserverPS {
   #                       Server Config Directory
   $global:servercfgdir    = "$env:APPDATA\$saves"
   #                       Server Launch Command
-  $global:launchParams    = '@("$executable -console -ip ${ip} -port ${port} -maxPlayers ${maxplayers}")'
+  $global:launchParams    = '@("${executable} -console -ip ${ip} -port ${port} -maxPlayers ${maxplayers}")'
   # Get User Input version must be set to 0
   Get-UserInput
-  # Write-Host "Creating Save Dir" -F M
-  # New-Item "$servercfgdir\Saves\$worldname\" -ItemType directory 
-  # Write-Host "Copying World template to Save Dir" -F M
-  # copy-item "$serverfiles\Content\Scenarios\$scenario\*" "$servercfgdir\Saves\$worldname\" 
   New-servercfgme
 }   
 
 
 Function New-servercfgme {
-  Write-Host "Creating Custom Config" -F M
-  New-Item $servercfgdir\MedievalEngineersDedicated-Dedicated.cfg -ItemType File -Force
+  New-Item $servercfgdir\MedievalEngineersDedicated-Dedicated.cfg -ItemType File -Force | Out-File -Append -Encoding Default  $ssmlog
   
   Add-Content $servercfgdir\MedievalEngineersDedicated-Dedicated.cfg `
 "<?xml version=`"1.0`"?>

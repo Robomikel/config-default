@@ -29,13 +29,13 @@ Function New-LaunchScriptPCserverPS {
   #                     Log Directory
   $global:logdirectory  = "$serverdir\logs"
   #                       Server Log
-  $global:consolelog             = ""
+  $global:consolelog    = ""
   #                     Game-Server-Config Directory
   $global:gamedirname   = "ProjectCars"
   #                     Game-Server-Config
   $global:servercfg     = "server.cfg"
   #                     Server Launch Command
-  $global:launchParams  = '@("$executable --config server.cfg -condebug")'
+  $global:launchParams  = '@("${executable} --config ${servercfg} -condebug")'
   # Get User Input version must be set to 0
   Get-UserInput
   # Download Game-Server-Config

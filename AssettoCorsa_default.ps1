@@ -25,11 +25,11 @@ Function New-LaunchScriptacserverPS {
     #                           Log Directory
     $global:logdirectory        = "$serverdir"
     #                           Server Log
-    $global:consolelog                 = ""
+    $global:consolelog          = ""
     #                           Server Config Directory
     $global:servercfgdir        = ""
     #                           Server Launch Command
-    $global:launchParams        = '@("$executable")'
+    $global:launchParams        = '@("${executable}")'
     # Get User Input version must be set to 0
     Get-UserInput
 }

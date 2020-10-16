@@ -30,11 +30,11 @@ Function New-LaunchScriptrFactor2serverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir"
     #                       Server Log
-    $global:consolelog             = ""
+    $global:consolelog      = ""
     #                       Game-Server-Config Directory
     $global:gamedirname     = ""
     #                       Game-Server-Config
     $global:servercfg       = ""
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable +path=".."")'
+    $global:launchParams    = '@("${executable} +path=".."")'
 } 

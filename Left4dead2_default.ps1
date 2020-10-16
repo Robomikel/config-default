@@ -35,13 +35,13 @@ Function New-LaunchScriptLFD2serverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir\left4dead2"
     #                       Server Log
-    $global:consolelog             = "console.log"
+    $global:consolelog      = "console.log"
     #                       Game-Server-Config Directory
     $global:gamedirname     = "Left4Dead2"
     #                       Game-Server-Config
     $global:servercfg       = "server.cfg"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable -console -game left4dead2 -strictportbind -ip ${ip} -port ${port} +clientport ${clientport} +hostip ${extip} +maxplayers ${maxplayers} +map `"${defaultmap}`" -condebug ")'
+    $global:launchParams    = '@("${executable} -console -game left4dead2 -strictportbind -ip ${ip} -port ${port}  +hostname `"${hostname}`" +clientport ${clientport} +hostip ${extip} +maxplayers ${maxplayers} +map `"${defaultmap}`" +servercfgfile ${servercfg} -condebug ")'
     # Get User Input version must be set to 0
     Get-UserInput
     # Download Game-Server-Config

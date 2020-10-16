@@ -12,8 +12,8 @@ Function New-LaunchScriptMemoriesofMarsServerPS {
     $global:serverpassword  = ""
     #                       Server Port
     $global:port            = "7777"
-    #                       Query Port
-    $global:queryport       = "27015"
+    #                       BeaconPort
+    $global:beaconport       = "15000"
     ##############################/\##############################
     
     ###################### Do not change below #####################
@@ -32,21 +32,20 @@ Function New-LaunchScriptMemoriesofMarsServerPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir\Game\Saved\Logs"
     #                       Server Log
-    $global:consolelog             = "Game.log"
+    $global:consolelog      = "Game.log"
     #                       Game-Server-Config Directory
     $global:gamedirname     = ""
     #                       Game-Server-Config
     $global:servercfg       = "DedicatedServerConfig.cfg"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable -MULTIHOME=`"${ip}`" -port=${port} -queryport=${queryport} -maxplayers=${maxplayers}")'
+    $global:launchParams    = '@("${executable} -MULTIHOME=`"${ip}`" -port=${port} -queryport=${beaconport} -maxplayers=${maxplayers}")'
     # Get User Input version must be set to 0
     Get-UserInput
     New-servercfgmom
 } 
 Function New-servercfgmom {
-    Write-Host "Creating Custom Config" -F M
     Rename-Item "$servercfgdir\DedicatedServerConfig.cfg" "$servercfgdir\DedicatedServerConfig.cfg.bak" -ea SilentlyContinue
-    New-Item $servercfgdir\DedicatedServerConfig.cfg -ItemType File -Force
+    New-Item $servercfgdir\DedicatedServerConfig.cfg -ItemType File -Force | Out-File -Append -Encoding Default  $ssmlog
     
     Add-Content $servercfgdir\DedicatedServerConfig.cfg `
 "{

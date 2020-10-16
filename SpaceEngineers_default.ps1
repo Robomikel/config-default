@@ -70,23 +70,22 @@ Function New-LaunchScriptSEserverPS {
   #                       Log Directory
   $global:logdirectory    = "$env:APPDATA\$saves"
   #                       Server Log
-  $global:consolelog             = "SpaceEngineersDedicated_*.log"
+  $global:consolelog      = "SpaceEngineersDedicated_*.log"
   #                       Server Config Directory
   $global:servercfgdir    = "$env:APPDATA\$saves"
   #                       Server Launch Command
-  $global:launchParams    = '@("$executable -console -ip ${ip} -port ${port} -maxPlayers ${maxplayers}")'
+  $global:launchParams    = '@("${executable} -console -ip ${ip} -port ${port} -maxPlayers ${maxplayers}")'
   # Get User Input version must be set to 0
   Get-UserInput
   # Install Adjustment
   New-servercfgse
-  Write-Host "Creating Save Dir" -F M
-  New-Item "$servercfgdir\Saves\$WORLDNAME\" -ItemType directory -Force -ErrorAction SilentlyContinue
-  Write-Host "Copying World template to Save Dir" -F M
-  copy-item "$serverfiles\Content\CustomWorlds\$CustomWorlds\*" "$servercfgdir\Saves\$WORLDNAME\" -ErrorAction SilentlyContinue
+  Add-Content $ssmlog "[$loggingdate] Creating $servercfgdir\Saves\$WORLDNAME"
+  New-Item "$servercfgdir\Saves\$WORLDNAME\" -ItemType directory -Force -ErrorAction SilentlyContinue | Out-File -Append -Encoding Default  $ssmlog
+  Add-Content $ssmlog "[$loggingdate] Copy $serverfiles\Content\CustomWorlds\$CustomWorlds\* $servercfgdir\Saves\$WORLDNAME\"
+  copy-item "$serverfiles\Content\CustomWorlds\$CustomWorlds\*" "$servercfgdir\Saves\$WORLDNAME\" -ErrorAction SilentlyContinue | Out-File -Append -Encoding Default  $ssmlog
 }   
 Function New-servercfgse {
-  Write-Host "Creating Custom Config" -F M
-  New-Item $servercfgdir\SpaceEngineers-Dedicated.cfg -ItemType File -Force
+  New-Item $servercfgdir\SpaceEngineers-Dedicated.cfg -ItemType File -Force | Out-File -Append -Encoding Default  $ssmlog
   
   Add-Content $servercfgdir\SpaceEngineers-Dedicated.cfg `
 "<?xml version=`"1.0`"?>

@@ -41,13 +41,13 @@ Function New-LaunchScriptCaspaServerPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir\Capsa\Saved\Logs"
     #                       Server Log
-    $global:consolelog             = "Capsa.log"
+    $global:consolelog      = "Capsa.log"
     #                       Game-Server-Config Directory
     $global:gamedirname     = "Capsa"
     #                       Game-Server-Config
     $global:servercfg       = "Game.ini"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable")'
+    $global:launchParams    = '@("${executable}")'
     # Get User Input version must be set to 0
     Get-UserInput
 } 

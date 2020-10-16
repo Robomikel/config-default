@@ -29,13 +29,13 @@ Function New-LaunchScriptdowserverPS {
     #                       Log Directory
     $global:logdirectory    = "$serverdir\DaysOfWar\Saved\Logs"
     #                       Server Log
-    $global:consolelog             = "DaysOfWar.log"    
+    $global:consolelog      = "DaysOfWar.log"    
     #                       Game-Server-Config Directory
     $global:gamedirname     = ""
     #                       Game-Server-Config
     $global:servercfg       = "Game.ini"
     #                       Server Launch Command
-    $global:launchParams    = '@("$executable ${defaultmap} -Port=${port} -QueryPort=${queryport} -LOG")'
+    $global:launchParams    = '@("${executable} ${defaultmap} -Port=${port} -QueryPort=${queryport} -LOG")'
     # Get User Input version must be set to 0
     Get-UserInput
 } 
