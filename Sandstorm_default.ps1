@@ -61,7 +61,7 @@ Function New-LaunchScriptInssserverPS {
         Get-UserInput
 
         #                               Server Launch Command
-        If ($SERVERPASSWORD -ne " ") {
+        If ($serverpassword -ne " ") {
                 If ($gslt -ne "GameServerToken" ) {
                         If ($modsenabled -eq $true) {
                                 $global:launchParams = '@("${executable} ${defaultmap}?Scenario=${scenario}?MaxPlayers=${maxplayers}?password=${serverpassword}?Lighting=${lighting}-Port=${port} -QueryPort=${queryport} -log -hostname=`"${hostname}`" -GSLTToken=${gslt} -Mods")'
