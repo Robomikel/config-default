@@ -18,13 +18,13 @@ Function New-LaunchScriptInssserverPS {
         #                               Server Name       
         $global:hostname                = "SERVERNAME"
         #                               Server Password
-        $global:serverpassword          = ""
+        $global:serverpassword          = " "
         #                               Server Rcon Port
         $global:rconport                = "27103"
         #                               Server Rcon Password
         $global:rconpassword            = "$RANDOMPASSWORD"
         #                               Server Admin Steam ID 64
-        $global:steamid64               = ""
+        $global:steamid64               = " "
         #                               Map Lighting
         $global:lighting                = "Night"
         #                               Game Server Token
@@ -61,7 +61,7 @@ Function New-LaunchScriptInssserverPS {
         Get-UserInput
 
         #                               Server Launch Command
-        If ($SERVERPASSWORD -ne "") {
+        If ($SERVERPASSWORD -ne " ") {
                 If ($gslt -ne "GameServerToken" ) {
                         If ($modsenabled -eq $true) {
                                 $global:launchParams = '@("${executable} ${defaultmap}?Scenario=${scenario}?MaxPlayers=${maxplayers}?password=${serverpassword}?Lighting=${lighting}-Port=${port} -QueryPort=${queryport} -log -hostname=`"${hostname}`" -GSLTToken=${gslt} -Mods")'
