@@ -29,7 +29,7 @@ Function New-LaunchScriptInssserverPS {
         $global:lighting                = "Night"
         #                               Game Server Token
         $global:gslt                    = "GameServerToken"
-        #                               Mods Enabled? $true / Leave Empty
+        #                               Mods Enabled? $true / $false
         $global:modsenabled             = "$false"
         #                               Mod.io OAuth Access Token
         $global:oauthtoken              = ""
