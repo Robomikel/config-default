@@ -21,7 +21,7 @@ Function New-LaunchScriptLFD2serverPS {
     
     ###################### Do not change below ##################### 
     #                       System Directory
-    $global:systemdir       = "left4dead2"
+    $global:systemdir       = "$serverdir\left4dead2"
     #                       Server Config Directory
     $global:servercfgdir    = "$serverdir\left4dead2\cfg"
     #                       Server Executable

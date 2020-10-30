@@ -26,7 +26,7 @@ Function New-LaunchScriptHL2DMserverPS {
 
     ###################### Do not change below #####################
     #                       System Directory
-    $global:systemdir       = "hl2mp"
+    $global:systemdir       = "$serverdir\hl2mp"
     #                       Server Config Directory
     $global:servercfgdir    = "$serverdir\hl2mp\cfg"
     #                       Server Executable

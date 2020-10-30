@@ -36,7 +36,7 @@ Function New-LaunchScriptGMODserverPS {
 
     ###################### Do not change below #####################
     #                       System Directory
-    $global:systemdir       = "garrysmod"
+    $global:systemdir       = "$serverdir\garrysmod"
     #                       Server Config Directory
     $global:servercfgdir    = "$serverdir\garrysmod\cfg"
     #                       Server Executable

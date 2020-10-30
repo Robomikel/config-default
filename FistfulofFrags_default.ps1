@@ -24,7 +24,7 @@ Function New-LaunchScriptFOFserverPS {
 
     ###################### Do not change below #####################
     #                       System Directory
-    $global:systemdir       = "$serverdir"
+    $global:systemdir       = "$serverdir\fof"
     #                       Server Config Directory
     $global:servercfgdir    = "$serverdir\fof\cfg"
     #                       Server Executable

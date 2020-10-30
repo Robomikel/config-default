@@ -27,7 +27,7 @@ Function New-LaunchScriptDAserverPS {
 
     ###################### Do not change below #####################
     #                       System Directory
-    $global:systemdir       = "dab"
+    $global:systemdir       = "$serverdir\dab"
     #                       Server Config Directory
     $global:servercfgdir    = "$serverdir\dab\cfg"
     #                       Server Executable

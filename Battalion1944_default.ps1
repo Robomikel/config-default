@@ -13,7 +13,7 @@ Function New-LaunchScriptBT1944serverPS {
     ##############################/\##############################
     ###################### Do not change below #####################
     #                       System Directory
-    $global:systemdir       = "$serverdi"
+    $global:systemdir       = "$serverdir"
     #                       Server Config Directory
     $global:servercfgdir    = "$serverdir\Windows"
     #                       Server Executable 
