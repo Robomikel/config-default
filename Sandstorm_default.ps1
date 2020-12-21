@@ -159,6 +159,8 @@ Function New-LaunchScriptInssserverPS {
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Tideway_Checkpoint_Security",Lighting="Day")'
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Tell_Checkpoint_Security",Lighting="Night")'
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Tell_Checkpoint_Security",Lighting="Day")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Bab_Checkpoint_Security",Lighting="Night")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Bab_Checkpoint_Security",Lighting="Day")'
         
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_PowerPlant_Checkpoint_Insurgents", Lighting="Night")'
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_PowerPlant_Checkpoint_Insurgents", Lighting="Day")'
@@ -186,6 +188,8 @@ Function New-LaunchScriptInssserverPS {
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Tideway_Checkpoint_Insurgents",Lighting="Day")'
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Tell_Checkpoint_Insurgents",Lighting="Night")'
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Tell_Checkpoint_Insurgents",Lighting="Day")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Bab_Checkpoint_Insurgents",Lighting="Night")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Bab_Checkpoint_Insurgents",Lighting="Day")'
 
 
 
