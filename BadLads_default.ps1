@@ -31,7 +31,7 @@ Function New-LaunchScriptBadLadsPS {
     #                       Game-Server-Config
     $global:servercfg       = "BadLadsServerSettings.ini"
     #                       Server Launch Command
-    $global:launchParams    = '@("${executable} -port=${port}? -useperfthreads -SteamServerName=${hostname} -log")'
+    $global:launchParams    = '@("${executable} -port=${port} -useperfthreads -SteamServerName=${hostname} -log")'
     #                             BadLadsServer.exe -log -port=7777 -useperfthreads -SteamServerName=My-Server-Name
   
     # Get User Input version must be set to 0
