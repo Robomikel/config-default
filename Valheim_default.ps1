@@ -31,6 +31,9 @@ Function New-LaunchScriptvalheimPS {
     $global:executabledir           = "$serverdir"
     #                               Gamedig Query
     $global:querytype               = "protocol-valve"
+    #                               Server Ports
+    $global:clientport              = $port + 1                 
+    $global:steamport               = $port + 2
     #                               Game Process
     $global:process                 = "valheim_server"
     #                               Log Directory
@@ -42,9 +45,9 @@ Function New-LaunchScriptvalheimPS {
     #                               Game-Server-Config
     $global:servercfg               = "server.cfg"
     #                               Server Launch Command
-    $global:launchParams            = '@("${executable} -nographics -batchmode -name ${hostname} -port ${port} -world ${defaultmap} -password ${serverpassword} -logfile ${logdirectory}\Serverlog-$date.log")'
+    #$global:launchParams            = '@("${executable} -nographics -batchmode -name ${hostname} -port ${port} -world ${defaultmap} -password ${serverpassword} -logfile ${logdirectory}\Serverlog-$date.log")'
     # 
-    #$global:launchParams            = '@("${executable} -nographics -batchmode -name ${hostname} -port ${port} -world ${defaultmap} -password ${serverpassword}")'
+    $global:launchParams            = '@("${executable} -nographics -batchmode -name ${hostname} -port ${port} -world ${defaultmap} -password ${serverpassword}")'
     #                                    valheim_server -nographics -batchmode -name "My server" -port 2456 -world "Dedicated" -password "secret"
     # Get User Input version must be set to 0
     Get-UserInput
