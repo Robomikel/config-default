@@ -42,13 +42,12 @@ Function New-LaunchScriptvalheimPS {
     #                               Game-Server-Config
     $global:servercfg               = "server.cfg"
     #                               Server Launch Command
-    $global:launchParams            = '@("${executable} -nographics -batchmode -name ${hostname} -port ${port} -world ${defaultmap} -password ${serverpassword}")'
-    #valheim_server -nographics -batchmode -name "My server" -port 2456 -world "Dedicated" -password "secret"
-
+    $global:launchParams            = '@("${executable} -nographics -batchmode -name ${hostname} -port ${port} -world ${defaultmap} -password ${serverpassword} -logfile ${logdirectory}\Serverlog-$date.log")'
+    # 
+    #$global:launchParams            = '@("${executable} -nographics -batchmode -name ${hostname} -port ${port} -world ${defaultmap} -password ${serverpassword}")'
+    #                                    valheim_server -nographics -batchmode -name "My server" -port 2456 -world "Dedicated" -password "secret"
     # Get User Input version must be set to 0
     Get-UserInput
-    # Download Game-Server-Config
-    #Get-Servercfg
 }
 
 
