@@ -31,9 +31,9 @@ Function New-LaunchScriptvalheimPS {
     $global:executabledir           = "$serverdir"
     #                               Gamedig Query
     $global:querytype               = "protocol-valve"
-    #                               Server Ports
-    $global:clientport              = $port + 1                 
-    $global:steamport               = $port + 2
+    # #                               Server Ports
+    # $global:clientport              = $port + 1                 
+    # $global:steamport               = $port + 2
     #                               Game Process
     $global:process                 = "valheim_server"
     #                               Log Directory
