@@ -5,7 +5,7 @@ Function New-LaunchScriptvalheimPS {
     #                       Server IP 
     ${global:IP}            = "${ip}"
     #                       Server Port
-    $global:port            = "2456"
+    $global:port            = 2456
     #                       Server Name
     $global:hostname        = "SERVERNAME"
     #                       World 
