@@ -9,18 +9,12 @@ Function New-LaunchScriptNotDserverPS {
     $global:port            = "7777"
     #                       Query Port
     $global:queryport       = "27015"
-    #                       Rcon Port
-    # $global:rconport        = "27017"
-    #                       Rcon Password
-    $global:rconpassword    = "$RANDOMPASSWORD"
-    #                       Map
-    # $global:defaultmap      = ""
+    #                       Admin Password
+    $global:adminpassword   = "$adminpassword"
     #                       Maxplayers
     $global:maxplayers      = "16"
     #                       Server Name
     $global:hostname        = "SERVERNAME"
-    #                       Server Password
-    # $global:serverpassword  = ""
     ##############################/\##############################
     
     
