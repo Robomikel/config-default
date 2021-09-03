@@ -63,5 +63,5 @@ Function New-LaunchScriptBeyondtheWirePS {
         # Download Game-Server-Config
         # Get-Servercfg
         # Edit Server Game-Server-Config
-        Select-EditSourceCFG
+        # Select-EditSourceCFG
 } 
