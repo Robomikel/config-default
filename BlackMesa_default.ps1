@@ -24,7 +24,7 @@ Function New-LaunchScriptBlackMesaserverPS {
     
     ##################### Do not change below #####################
     #                       System Directory 
-    $global:systemdir       = "$serverdir"
+    $global:systemdir       = "$serverdir\bms"
     #                       Server Config Directory
     $global:servercfgdir    = "$serverdir\bms\cfg"
     #                       Server Executable 
