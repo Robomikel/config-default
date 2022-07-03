@@ -322,7 +322,7 @@ Function New-LaunchScriptInssserverPS {
         Add-Content   $servercfgdir\Game.ini DefaultVoteBanDuration=120
         Add-Content   $servercfgdir\Game.ini " "
         Add-Content   $servercfgdir\Game.ini ";"
-        Add-Content   $servercfgdir\Game.ini ";All Mutator settings go in Engine.ini"
+        Add-Content   $servercfgdir\Game.ini ";All Mutator settings go in GameUserSettings.ini"
         Add-Content   $servercfgdir\Game.ini ";(will bechanged to Game.ini in the future for consistency)."
         Add-Content   $servercfgdir\Game.ini [/script/insurgency.mutator_headshotonly]
         Add-Content   $servercfgdir\Game.ini bCheckMeleeDamage=false
@@ -340,9 +340,9 @@ Function New-LaunchScriptInssserverPS {
 
         
         # - - - - - - Game.ini - - - -##  EDIT \/   \/   \/  \/  \/  \/ \/ \/ \/
-        Get-Infomessage " Creating Engine.ini for Mods" 'info'
-        New-Item $servercfgdir\Engine.ini -Force
-        Add-Content   $servercfgdir\Engine.ini [/Script/ModKit.ModIOClient]
-        Add-Content   $servercfgdir\Engine.ini bHasUserAcceptedTerms=True
-        Add-Content   $servercfgdir\Engine.ini AccessToken=$oauthtoken
+        Get-Infomessage " Creating GameUserSettings.ini for Mods" 'info'
+        New-Item $servercfgdir\GameUserSettings.ini -Force
+        Add-Content   $servercfgdir\GameUserSettings.ini [/Script/ModKit.ModIOClient]
+        Add-Content   $servercfgdir\GameUserSettings.ini bHasUserAcceptedTerms=True
+        Add-Content   $servercfgdir\GameUserSettings.ini AccessToken=$oauthtoken
 }
