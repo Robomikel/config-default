@@ -25,6 +25,8 @@ Function New-LaunchScriptvalheimPS {
     $global:systemdir               = "$serverdir\valheim_server_Data"
     #                               Server Config Directory
     $global:servercfgdir            = "$serverdir"
+    #                               Appdata Directory
+    $global:saves                   = 'Low' + "\IronGate"
     #                               Server Executable
     $global:executable              = "valheim_server"
     #                               Server Executable Directory
