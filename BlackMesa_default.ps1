@@ -13,7 +13,7 @@ Function New-LaunchScriptBlackMesaserverPS {
     #                       Source TV Port
     $global:sourcetvport    = "27020"
     #                       Server Map 
-    $global:defaultmap      = "dm_bounce"
+    $global:defaultmap      = "dm_bounce" # Use bm_c0a0a for SrcCoop mod. 
     #                       Max Players 
     $global:maxplayers      = "16"
       #                     Server Name
@@ -24,7 +24,7 @@ Function New-LaunchScriptBlackMesaserverPS {
     
     ##################### Do not change below #####################
     #                       System Directory 
-    $global:systemdir       = "$serverdir"
+    $global:systemdir       = "$serverdir\bms"
     #                       Server Config Directory
     $global:servercfgdir    = "$serverdir\bms\cfg"
     #                       Server Executable 
