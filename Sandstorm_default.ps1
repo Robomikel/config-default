@@ -29,10 +29,12 @@ Function New-LaunchScriptInssserverPS {
         $global:lighting                = "Night"
         #                               Game Server Token
         $global:gslt                    = "GameServerToken"
+        #                               Game Stats Token
+        $global:gst                     = "GameStatsToken"
         #                               Mods Enabled? $true / $false
         $global:modsenabled             = "$false"
         #                               Mod.io OAuth Access Token
-        $global:oauthtoken              = ""
+        $global:oauthtoken              = " "
         ##############################/\############################## 
         # To specify a list of mods your server is running you can add a text file in Insurgency/Config/Server/Mods.txt specifying each mod ID line by line. 
         # You can also override the text file read by specifying -ModList=MyCustomModList.txt on the command line.
@@ -42,62 +44,40 @@ Function New-LaunchScriptInssserverPS {
         # You may specify a map to travel to after mods are downloaded by specifying the ModDownloadTravelTo= command line argument, followed by the travel URL argument to change to.
         ###################### Do not change below #####################
         #                               System Directory
-        $global:systemdir               = "$serverdir"
+        $global:systemdir =             "$serverdir"
         #                               Server Config Directory
-        $global:servercfgdir            = "$serverdir\Insurgency\Saved\Config\WindowsServer"
+        $global:servercfgdir =          "$serverdir\Insurgency\Saved\Config\WindowsServer"
         #                               Server Executable
-        $global:executable              = "InsurgencyServer"
+        $global:executable =            "InsurgencyServer"
         #                               Server Executable Directory
-        $global:executabledir           = "$serverdir"
+        $global:executabledir =         "$serverdir"
         #                               Gamedig Query
-        $global:querytype               = "insurgencysandstorm"
+        $global:querytype =             "insurgencysandstorm"
         #                               Game Process
-        $global:process                 = "InsurgencyServer-Win64-Shipping"
+        $global:process =               "InsurgencyServer-Win64-Shipping"
         #                               Log Directory
-        $global:logdirectory            = "$serverdir\Insurgency\Saved\Logs"
+        $global:logdirectory =          "$serverdir\Insurgency\Saved\Logs"
         #                               Server Log
-        $global:consolelog              = "Insurgency.log"
+        $global:consolelog =            "Insurgency.log"
         # Get User Input version must be set to 0
         Get-UserInput
-
         #                               Server Launch Command
+        $launchParams = '@("${executable} ${defaultmap}?Scenario=${scenario}?MaxPlayers=${maxplayers}'
         If ($serverpassword -ne " ") {
-                If ($gslt -ne "GameServerToken" ) {
-                        If ($modsenabled -eq $true) {
-                                $global:launchParams = '@("${executable} ${defaultmap}?Scenario=${scenario}?MaxPlayers=${maxplayers}?password=${serverpassword}?Lighting=${lighting}-Port=${port} -QueryPort=${queryport} -log -hostname=`"${hostname}`" -GSLTToken=${gslt} -Mods")'
-                        } 
-                        Else {
-                                $global:launchParams = '@("${executable} ${defaultmap}?Scenario=${scenario}?MaxPlayers=${maxplayers}?password=${serverpassword}?Lighting=${lighting}-Port=${port} -QueryPort=${queryport} -log -hostname=`"${hostname}`" -GSLTToken=${gslt}")'
-                        }
-                } 
-                Else {
-                        If ($modsenabled -eq $true) {
-                                $global:launchParams = '@("${executable} ${defaultmap}?Scenario=${scenario}?MaxPlayers=${maxplayers}?password=${serverpassword}?Lighting=${lighting}-Port=${port} -QueryPort=${queryport} -log -hostname=`"${hostname}`" -Mods")'
-                        }
-                        Else {
-                                $global:launchParams = '@("${executable} ${defaultmap}?Scenario=${scenario}?MaxPlayers=${maxplayers}?password=${serverpassword}?Lighting=${lighting}-Port=${port} -QueryPort=${queryport} -log -hostname=`"${hostname}`"")'
-                        }
-                }
+                $launchParams += '?password=${serverpassword}'
         }
-        Else {
-                If ($gslt -ne "GameServerToken" ) {
-                        If ($modsenabled -eq $true) {
-                                $global:launchParams = '@("${executable} ${defaultmap}?Scenario=${scenario}?MaxPlayers=${maxplayers}?Lighting=${lighting} -Port=${port} -QueryPort=${queryport} -log -hostname=`"${hostname}`" -GSLTToken=${gslt} -Mods")'
-                        }
-                        Else {
-                                $global:launchParams = '@("${executable} ${defaultmap}?Scenario=${scenario}?MaxPlayers=${maxplayers}?Lighting=${lighting} -Port=${port} -QueryPort=${queryport} -log -hostname=`"${hostname}`" -GSLTToken=${gslt}")'
-                        }
-                } 
-                Else {
-                        If ($modsenabled -eq $true) {
-                                $global:launchParams = '@("${executable} ${defaultmap}?Scenario=${scenario}?MaxPlayers=${maxplayers}?Lighting=${lighting} -Port=${port} -QueryPort=${queryport} -log -hostname=`"${hostname}`" -Mods")'
-                        }
-                        Else {
-                                $global:launchParams = '@("${executable} ${defaultmap}?Scenario=${scenario}?MaxPlayers=${maxplayers}?Lighting=${lighting} -Port=${port} -QueryPort=${queryport} -log -hostname=`"${hostname}`"")'
-                        }
-                } 
+        $launchParams += '?Lighting=${lighting}-Port=${port} -QueryPort=${queryport} -log -hostname=`"${hostname}`"'
+        if ($gst -ne "GameStatsToken") {
+                $launchParams += ' -GameStatsToken=${gst} -GameStats'
         }
-
+        if ($gslt -ne "GameServerToken") {
+                $launchParams += ' -GSLTToken=${gslt}'
+        }
+        if ($modsenabled -eq $true) {
+                $launchParams += ' -Mods'
+        }
+        $launchParams += '")'
+        $global:launchParams = $launchParams
         # Custom config 
         mkdir $serverdir\Insurgency\Config\Server   >$null 2>&1
         $MapCyclePath = "$serverdir\Insurgency\Config\Server"  
@@ -161,7 +141,13 @@ Function New-LaunchScriptInssserverPS {
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Tell_Checkpoint_Security",Lighting="Day")'
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Bab_Checkpoint_Security",Lighting="Night")'
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Bab_Checkpoint_Security",Lighting="Day")'
-        
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Citadel_Checkpoint_Security",Lighting="Night")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Citadel_Checkpoint_Security",Lighting="Day")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Gap_Checkpoint_Security",Lighting="Night")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Gap_Checkpoint_Security",Lighting="Day")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Prison_Checkpoint_Security",Lighting="Night")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Prison_Checkpoint_Security",Lighting="Day")'
+
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_PowerPlant_Checkpoint_Insurgents", Lighting="Night")'
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_PowerPlant_Checkpoint_Insurgents", Lighting="Day")'
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Ministry_Checkpoint_Insurgents", Lighting="Night")'
@@ -190,7 +176,12 @@ Function New-LaunchScriptInssserverPS {
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Tell_Checkpoint_Insurgents",Lighting="Day")'
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Bab_Checkpoint_Insurgents",Lighting="Night")'
         Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Bab_Checkpoint_Insurgents",Lighting="Day")'
-
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Citadel_Checkpoint_Insurgents",Lighting="Night")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Citadel_Checkpoint_Insurgents",Lighting="Day")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Gap_Checkpoint_Insurgents",Lighting="Night")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Gap_Checkpoint_Insurgents",Lighting="Day")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Prison_Checkpoint_Insurgents",Lighting="Night")'
+        Add-Content   $MapCyclePath\Mapcycle.txt '(Scenario="Scenario_Prison_Checkpoint_Insurgents",Lighting="Day")'
 
 
         # - - - - - - Game.ini - - - -##  EDIT \/   \/   \/  \/  \/  \/ \/ \/ \/
@@ -340,9 +331,13 @@ Function New-LaunchScriptInssserverPS {
 
         
         # - - - - - - Game.ini - - - -##  EDIT \/   \/   \/  \/  \/  \/ \/ \/ \/
-        Get-Infomessage " Creating GameUserSettings.ini for Mods" 'info'
-        New-Item $servercfgdir\GameUserSettings.ini -Force
-        Add-Content   $servercfgdir\GameUserSettings.ini [/Script/ModKit.ModIOClient]
-        Add-Content   $servercfgdir\GameUserSettings.ini bHasUserAcceptedTerms=True
-        Add-Content   $servercfgdir\GameUserSettings.ini AccessToken=$oauthtoken
+        if ($modsenabled -eq $true) {
+                if ($oauthtoken -ne " ") {
+                        Get-Infomessage " Creating GameUserSettings.ini for Mods" 'info'
+                        New-Item $servercfgdir\GameUserSettings.ini -Force
+                        Add-Content   $servercfgdir\GameUserSettings.ini [/Script/ModKit.ModIOClient]
+                        Add-Content   $servercfgdir\GameUserSettings.ini bHasUserAcceptedTerms=True
+                        Add-Content   $servercfgdir\GameUserSettings.ini AccessToken=$oauthtoken
+                }
+        }
 }
