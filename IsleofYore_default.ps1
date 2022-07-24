@@ -27,15 +27,15 @@ Function New-LaunchScriptIselofYorePS {
     #                       System Directory
     $global:systemdir       = "$serverdir"
     #                       Server Config Directory
-    $global:servercfgdir    = "$serverdir\IslesOfYore\Saved\Config\WindowsServer"
+    $global:servercfgdir    = "$serverdir\IslesOfYore\Saved\Yore"
     #                       Server Executable
-    $global:executable      = "IslesOfYoreServer-Win64-Shipping"
+    $global:executable      = "IslesOfYoreServer"
     #                       Server Executable Directory
-    $global:executabledir   = "$serverdir\IslesOfYore\Binaries\Win64"
+    $global:executabledir   = "$serverdir"
     #                       Gamedig Query
     $global:querytype       = "protocol-valve"
     #                       Game Process
-    $global:process         = "IslesOfYoreServer-Win64-Shipping"
+    $global:process         = "IslesOfYoreServer"
     #                       Log Directory
     $global:logdirectory    = "$serverdir\IslesOfYore\Saved\Logs"
     #                       Server Log
@@ -43,7 +43,7 @@ Function New-LaunchScriptIselofYorePS {
     #                       Game-Server-Config Directory
     $global:gamedirname     = ""
     #                       Game-Server-Config
-    $global:servercfg       = "GameUserSettings.ini"
+    $global:servercfg       = "Session.json"
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} -restport=${port} -queryport=${queryport} -log ")'
     #
@@ -54,10 +54,23 @@ Function New-LaunchScriptIselofYorePS {
     # Get-Servercfg
     # Edit Server Game-Server-Config
     # Select-EditSourceCFG
+    Set-Location $executabledir
+    Get-Infomessage "***  starting Server before Setting $servercfg Please Wait ***" 'info'
+    Start-Process cmd "/c start IslesOfYoreServer.exe"
+    Start-sleep -Seconds 30
+    Get-Infomessage "***  stopping Server before Setting $servercfg Please Wait ***" 'info'
+    Get-StopServer   
+    Get-isleofyoreInstallChanges
+    Set-Location $currentdir
 
+} 
+
+function Get-isleofyoreInstallChanges {
+    Get-Infomessage "***  Editing Default Server Name $servercfg ***" 'info' 
     $a = Get-Content "$serverdir\IslesOfYore\Saved\Yore\session.json" -raw | ConvertFrom-Json
     $a.ServerName = "${hostname}"
     $a.ServerPassword = "${serverpassword}" 
     $a.PublicConnections = "${maxplayers}" 
-    $a | ConvertTo-Json| set-content "$serverdir\IslesOfYore\Saved\Yore\session.json"
-} 
+    Get-Infomessage "***  setting Default Server Name $servercfg ***" 'info' 
+    $a | ConvertTo-Json | set-content "$serverdir\IslesOfYore\Saved\Yore\session.json"
+}
