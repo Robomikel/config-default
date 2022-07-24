@@ -55,9 +55,9 @@ Function New-LaunchScriptIselofYorePS {
     # Edit Server Game-Server-Config
     # Select-EditSourceCFG
 
-    $a = Get-Content 'session.json' -raw | ConvertFrom-Json
+    $a = Get-Content "$serverdir\IslesOfYore\Saved\Yore\session.json" -raw | ConvertFrom-Json
     $a.ServerName = "${hostname}"
     $a.ServerPassword = "${serverpassword}" 
     $a.PublicConnections = "${maxplayers}" 
-    $a | ConvertTo-Json| set-content 'session.json'
+    $a | ConvertTo-Json| set-content "$serverdir\IslesOfYore\Saved\Yore\session.json"
 } 
