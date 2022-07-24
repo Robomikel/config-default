@@ -29,13 +29,13 @@ Function New-LaunchScriptIselofYorePS {
     #                       Server Config Directory
     $global:servercfgdir    = "$serverdir\IslesOfYore\Saved\Yore"
     #                       Server Executable
-    $global:executable      = "IslesOfYoreServer"
+    $global:executable      = "IslesOfYoreServer-Win64-Shipping"
     #                       Server Executable Directory
-    $global:executabledir   = "$serverdir"
+    $global:executabledir   = "$serverdir\IslesOfYore\Binaries\Win64"
     #                       Gamedig Query
     $global:querytype       = "protocol-valve"
     #                       Game Process
-    $global:process         = "IslesOfYoreServer"
+    $global:process         = "IslesOfYoreServer-Win64-Shipping"
     #                       Log Directory
     $global:logdirectory    = "$serverdir\IslesOfYore\Saved\Logs"
     #                       Server Log
