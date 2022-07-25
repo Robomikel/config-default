@@ -43,7 +43,7 @@ Function New-LaunchScriptTerrariaPS {
     #                       Game-Server-Config
     $global:servercfg       = "servercfg.txt"
     #                       Server Launch Command
-    $global:launchParams    = '@("${executable} -config $servercfgdir\$servercfg")'
+    $global:launchParams    = '@("${executable} -config $servercfgdir\$servercfg -autocreate 1")'
 
   
     # Get User Input version must be set to 0
