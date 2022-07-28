@@ -41,7 +41,7 @@ Function  New-LaunchScriptavserverPS {
         $global:logdirectory            = "$env:APPDATA\$saves\galaxies\$galaxyname"
         #                               Server Log
         $global:consolelog              = "serverlog*.txt"
-        # Get User Input version must be set to 0
+        # Advanced must be set to "0"
         Get-UserInput
         #                               Server Launch Command
         If ($steamID64 -ne "Steam64") {

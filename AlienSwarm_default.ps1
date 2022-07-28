@@ -40,7 +40,7 @@ Function New-LaunchScriptasrdserverPS {
     $global:servercfg       = "server.cfg"
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} -console -game reactivedrop -ip ${ip} -port ${port} +hostname `"${hostname}`" +map ${defaultmap} -maxplayers ${maxplayers} +clientport ${clientport} +tv_port ${sourcetvport} +exec ${servercfg} -condebug")'
-      # Get User Input version must be set to 0
+      # Advanced must be set to "0"
     Get-UserInput
     # Rename Source $executable.exe
     Select-RenameSource

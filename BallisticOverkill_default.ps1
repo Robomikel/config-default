@@ -39,7 +39,7 @@ Function New-LaunchScriptBOserverPS {
     $global:servercfg               = "config.txt"
     #                               Server Launch Command
     $global:launchParams            = '@("${executable} -batchmode -nographics -dedicated ")'  
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Download Game-Server-Config
     # Get-Servercfg

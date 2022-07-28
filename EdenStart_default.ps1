@@ -56,7 +56,7 @@ Function New-LaunchScriptEdenStartPS {
     $global:servercfg       = ""
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} -log -multihome=${ip} -Port=${port} -QueryPort=${queryport} -ServerMaxPlayers=${maxplayers} -ServerName=${hostname} -ServerPassword=${serverpassword} -RCONPort=${rconport} -RCONPassword=$rconpassword")'
-      # Get User Input version must be set to 0
+      # Advanced must be set to "0"
     Get-UserInput
     # Download Game-Server-Config
     # Get-Servercfg

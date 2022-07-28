@@ -43,7 +43,7 @@ Function New-LaunchScriptAHL2serverPS {
   $global:servercfg       = "server.cfg"
   #                       Server Launch Command
   $global:launchParams    = '@("${executable} -console -game ahl2 -strictportbind -ip ${ip} -port ${port} +hostname `"${hostname}`" +clientport ${clientport} +tv_port ${sourcetvport} +map ${defaultmap} +servercfgfile ${servercfg} -maxplayers ${maxplayers} -condebug")'
-  # Get User Input version must be set to 0
+  # Advanced must be set to "0"
   Get-UserInput
   # Download Game-Server-Config
   Get-Servercfg

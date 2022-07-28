@@ -32,6 +32,6 @@ Function New-LaunchScriptBlackwakePS {
     $global:servercfg       = "Server.cfg"
     #                       Server Launch Command    
     $global:launchParams    = '@("${executable} -batchmode -nographics -logFile ${serverdir}\console.log")'
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
 } 
