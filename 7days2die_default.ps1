@@ -32,7 +32,7 @@ Function New-LaunchScriptSdtdserverPS {
     $global:servercfg       = "serverconfig.xml"
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} -logfile ${servercfgdir}\${consolelog} -quit -batchmode -nographics -configfile=${servercfg} -dedicated")'
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Install Adjustments
     Get-InstallChanges7d2d

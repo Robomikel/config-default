@@ -61,7 +61,7 @@ Function New-LaunchScriptArma3serverPS {
     $global:config2         = "network.cfg"
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} -ip=${ip} -port=${port} -cfg=${servercfgdir}\network.cfg -config=${servercfgdir}\${servercfg} -mod=${mods} -servermod=${servermods} -bepath=${serverdir}\battleye\ -profiles=SC -name=SC -loadmissiontomemory")'
-      # Get User Input version must be set to 0
+      # Advanced must be set to "0"
     Get-UserInput
     # Download Game-Server-Config
     Get-Servercfg    

@@ -75,7 +75,7 @@ Function New-LaunchScriptAFFserverPS {
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} ${defaultmap}?GamePassword=${adminpassword}?numplay=${numplayers}?MaxPlayers=${maxplayers}?BalanceBots=true?briefingtime=60 -multihome=${ip} -Port=${port} -QueryPort=${queryport} -log=${gamedirname}\${consolelog} -configsubdir=${gamedirname} -seekfreeloadingserver")'
     #                            AFFGameServer.exe AFF-Ixion?GamePassword=superpassword?numplay=32?BalanceBots=true?briefingtime=60 -log=SpaceServer\server.log -configsubdir=SpaceServer -seekfreeloadingserver
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Install Adjustment
     # Set-Location $servercfgdir

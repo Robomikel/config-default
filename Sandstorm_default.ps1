@@ -59,7 +59,7 @@ Function New-LaunchScriptInssserverPS {
         $global:logdirectory =          "$serverdir\Insurgency\Saved\Logs"
         #                               Server Log
         $global:consolelog =            "Insurgency.log"
-        # Get User Input version must be set to 0
+        # Advanced must be set to "0"
         Get-UserInput
         #                               Server Launch Command
         $launchParams = '@("${executable} ${defaultmap}?Scenario=${scenario}?MaxPlayers=${maxplayers}'

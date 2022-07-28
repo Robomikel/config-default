@@ -42,7 +42,7 @@ Function New-LaunchScriptArkPS {
         $global:servercfg       = "GameUserSettings.ini"
         #                       Server Launch Command
         $global:launchParams    = '@("${executable} ${defaultmap}?AltSaveDirectoryName=${defaultmap}?listen?MultiHome=${ip}?MaxPlayers=${maxplayers}?QueryPort=${queryport}?RCONEnabled=True?RCONPort=${rconport}?ServerAdminPassword=${rconpassword}?Port=${port} -automanagedmods -servergamelog")'
-          # Get User Input version must be set to 0
+          # Advanced must be set to "0"
         Get-UserInput
         # Download Game-Server-Config
         Get-Servercfg

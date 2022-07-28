@@ -49,7 +49,7 @@ Function New-LaunchScriptAstroPS {
     $global:launchParams    = '@("${executable} -log")'
     #                             AstroServer.exe
   
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Download Game-Server-Config
     # Get-Servercfg
