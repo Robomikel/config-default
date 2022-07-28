@@ -72,7 +72,7 @@ Function New-LaunchScriptceserverPS {
     $global:servercfg       =  "Engine.ini"
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} -log  -MaxPlayers=${maxplayers} -Port=${port} -QueryPort=${queryport} -RconEnabled=1 -RconPassword=${rconpassword} -RconPort=${rconport}")'
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Install Adjustment
     Set-Location $serverdir

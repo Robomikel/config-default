@@ -46,7 +46,7 @@ Function New-LaunchScriptBB2serverPS {
     #                       Game-Server-Config
     $global:servercfg       = "server.cfg"
     #                       Server Launch Command
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     If ($gslt -ne "GameServerToken") {
         $global:launchParams = '@("$executable -console -game brainbread2 -strictportbind -ip ${ip} -port ${port} +hostname `"${hostname}`" +clientport ${clientport} +tv_port ${sourcetvport} +map ${defaultmap} +sv_setsteamaccount ${gslt} +servercfgfile ${servercfg} -maxplayers ${maxplayers} -condebug")'

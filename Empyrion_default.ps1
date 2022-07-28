@@ -31,7 +31,7 @@ Function New-LaunchScriptempserverPS {
     $global:servercfg       = "dedicated.yaml"
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} -startDedi")'
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Install Adjustment
     Get-Infomessage " Editing Default dedicated.yaml " 'info'

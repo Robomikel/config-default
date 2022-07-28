@@ -34,7 +34,7 @@ Function New-LaunchScriptBadLadsPS {
     $global:launchParams    = '@("${executable} -port=${port} -useperfthreads -SteamServerName=${hostname} -log")'
     #                             BadLadsServer.exe -log -port=7777 -useperfthreads -SteamServerName=My-Server-Name
   
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Download Game-Server-Config
     # Get-Servercfg

@@ -58,7 +58,7 @@ Function New-LaunchScriptBeyondtheWirePS {
         $global:servercfg       = "Server.cfg"
         #                       Server Launch Command
         $global:launchParams    = '@("${executable} MULTIHOME=${ip} Port=${port} QueryPort=${queryport} FIXEDMAXPLAYERS=${maxplayers} FIXEDMAXTICKRATE=35 RANDOM=NONE -log")'
-          # Get User Input version must be set to 0
+          # Advanced must be set to "0"
         Get-UserInput
         # Download Game-Server-Config
         # Get-Servercfg
