@@ -17,7 +17,7 @@ Function New-LaunchScriptacserverPS {
     #                           Server Executable
     $global:executable          = "acServer.bat"
     #                           Server Executable Directory
-    $global:executabledir       = "Assetto Corsa\Server"
+    $global:executabledir       = "$serverdir"
     #                           Gamedig Query
     $global:querytype           = "protocol-valve"
     #                           Game Process
