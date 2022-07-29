@@ -21,11 +21,19 @@ Function New-LaunchScriptSquadserverPS {
     # QueryPort+1 = Second Steam query port = UDP and TCP (Default 27165, 27166 UDP and TCP)
     # RCON Port = UDP and TCP (Default 21114) must be open.
     
+    #               Advanced Steam WorkShop Mods Configuration
+    #                       WorkShop Mod Directory
+    $global:moddir        = "$systemdir\Mods"
+
+    #                       steam appID for SE regular game (workshop content tied to this appID)
+    $global:reg_appID       = '393380'
+    #                       list of mods to download and copy to server mod folder
+    $global:wsmods          = "@('2428425228')"
     
     
     ###################### Do not change below #####################
     #                               System Directory
-    $global:systemdir               = "$serverdir"
+    $global:systemdir               = "$serverdir\SquadGame\Plugins"
     #                               Server Config Directory
     $global:servercfgdir            = "$serverdir\SquadGame\ServerConfig"
     #                               Server Executable
@@ -52,4 +60,10 @@ Function New-LaunchScriptSquadserverPS {
     Get-Servercfg
     # Edit Server Game-Server-Config
     # Select-EditSourceCFG
+    set-plugins
+    Function set-plugins {
+        If(!Test-path $systemdir){
+            New-item -Name $systemdir -ItemType Directory
+        }
+    }
 } 
