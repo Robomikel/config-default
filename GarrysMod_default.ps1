@@ -55,7 +55,7 @@ Function New-LaunchScriptGMODserverPS {
     $global:gamedirname     = "GarrysMod"
     #                       Game-Server-Config
     $global:servercfg       = "server.cfg"
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     #                       Server Launch Command
     If ($gslt -ne "GameServerToken") {

@@ -52,7 +52,7 @@ Function New-LaunchScriptvalheimPS {
     # 
     $global:launchParams            = '@("${executable} -nographics -batchmode -name `"${hostname}`" -port ${port} -world `"${defaultmap}`" -password `"${serverpassword}`"")'
     #                                    valheim_server -nographics -batchmode -name "My server" -port 2456 -world "Dedicated" -password "secret"
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
 }
 

@@ -36,7 +36,7 @@ Function New-LaunchScriptjc3serverPS {
     $global:servercfg     = "config.json"
     #                     Server Launch Command
     $global:launchParams  = '@("${executable}")'
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Download Game-Server-Config
     Get-Servercfg

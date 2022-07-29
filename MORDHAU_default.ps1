@@ -48,7 +48,7 @@ Function New-LaunchScriptMORDHAUPS {
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} -USEALLAVAILABLECORES -Port=${port} -QueryPort=${queryport} -PeerPort=${peerport} -Beaconport=${beaconport} -log")'
     # -USEALLAVAILABLECORES -log -port=7778 -queryport=27015 -peerport=4778 -Beaconport=15000
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Download Game-Server-Config
     # Get-Servercfg

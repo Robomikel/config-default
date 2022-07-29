@@ -46,7 +46,7 @@ Function New-LaunchScriptHurtWorldPS {
     #                                            -batchmode -nographics -exec "host 12871;queryport 12881;servername <color=#FF0000>SurvivalServers.com</color> HurtWorld;addadmin UID here " -logfile "gamelog.txt"
     $global:launchParams    = '@("${executable}  -batchmode -nographics -exec `"host ${port};queryport ${queryport};servername <color=#FF0000>${hostname}</color> HurtWorld;addadmin $steamid64 `" -logfile `"${consolelog}`"")'
                                                # -batchmode -nographics -exec "servername Unconfigured;host 12871" -logfile "gamelog.txt"
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Download Game-Server-Config
     # Get-Servercfg

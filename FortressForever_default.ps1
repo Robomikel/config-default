@@ -44,7 +44,7 @@ Function New-LaunchScriptFFserverPS {
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} -console -game FortressForever -strictportbind -ip ${ip} -port ${port} +hostname `"${hostname}`" +clientport ${clientport} +tv_port ${sourcetvport} +map ${defaultmap} +servercfgfile ${servercfg} +maxplayers ${maxplayers} -condebug")'
     # -console -game open_fortress +maxplayers 32 +map dm_hydro
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Download Game-Server-Config
     # Get-Servercfg

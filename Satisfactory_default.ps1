@@ -58,6 +58,6 @@ Function New-LaunchScriptSatisfactoryPS {
     $global:servercfg       = "ServerSettings.ini"
     #                       Server Launch Command    
     $global:launchParams    = '@("${executable} -log -unattended -multihome=${ip} -ServerQueryPort=${queryport} -BeaconPort=${beaconport} -Port=${port}" )'
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
 } 

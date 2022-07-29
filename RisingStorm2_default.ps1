@@ -42,7 +42,7 @@ Function New-LaunchScriptRS2PS {
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} ${defaultmap}?MaxPlayers=${maxplayers}Port=${port}?QueryPort=${queryport}?Multihome=${ip}?EnableWebAdmin=true?WebAdminPort=8080?AdminPassword=${adminpassword} -log=${consolelog} -UNATTENDED")'
     #                       .\Binaries\Win64\VNGame.exe VNSU-SongBe?MaxPlayers=64?EnableWebAdmin=true?WebAdminPort=8080?AdminPassword=yourpasshere -log=ServerLog.log -UNATTENDED
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Download Game-Server-Config
     # Get-Servercfg

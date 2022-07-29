@@ -43,7 +43,7 @@ Function New-LaunchScriptIslePS {
     $global:launchParams    = '@("${executable} ${defaultmap}?MultiHome=${ip}?Port=${port}?QueryPort=${queryport}?MaxPlayers=${maxplayers}?game=Survival -log")'
 
     # start C:\TheIsleServer\TheIsleServer.exe /Game/TheIsle/Maps/Landscape3/Isle_V3?MultiHome=12.345.67.890?Port=7777?QueryPort=7777?MaxPlayers=100?game=Survival -log
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Download Game-Server-Config
     # Get-Servercfg

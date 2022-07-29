@@ -44,7 +44,7 @@ Function New-LaunchScriptWreckfestPS {
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} -s server_config=${servercfg}")'
     
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Download Game-Server-Config
     # Get-Servercfg

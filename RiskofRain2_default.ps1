@@ -40,7 +40,7 @@ Function New-LaunchScriptRiskofrain2PS {
     $global:servercfg               = "server.cfg"
     #                               Server Launch Command
     $global:launchParams            = '@("`"${executable}`"")'
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-ror2serverInstallChanges
     Get-UserInput
     # Download Game-Server-Config

@@ -39,7 +39,7 @@ Function New-LaunchScriptMemoriesofMarsServerPS {
     $global:servercfg       = "DedicatedServerConfig.cfg"
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} -MULTIHOME=`"${ip}`" -port=${port} -queryport=${beaconport} -maxplayers=${maxplayers}")'
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     New-servercfgmom
 } 

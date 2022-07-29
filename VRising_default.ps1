@@ -47,7 +47,7 @@ Function New-LaunchScriptVRisingserverPS {
     $global:launchParams        = '@("${executable} -persistentDataPath .\save-data -serverName `"${hostname}`" -logFile `"${logdirectory}\${consolelog}`"")'
     #                           = '@("${executable} -persistentDataPath .\save-data -serverName `"${hostname}`" -saveName `"${worldname}`" -logFile `"${logdirectory}\${consolelog}`"")'
     #                           VRisingServer.exe -persistentDataPath .\save-data -serverName "My V Rising Server" -saveName "world1" -logFile ".\logs\VRisingServer.log"
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
 
     Set-Location $executabledir

@@ -44,7 +44,7 @@ Function New-LaunchScriptNotDserverPS {
     $global:servercfg       = "ServerSettings.ini"
     #                       Server Launch Command    
     $global:launchParams    = '@("${executable} ?listen -log -Port=${port} -QueryPort=${queryport} -CRASHREPORTS")'
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Install Adjustment
     Set-Location $serverdir

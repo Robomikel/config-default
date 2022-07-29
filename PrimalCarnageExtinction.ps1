@@ -51,6 +51,6 @@ Function New-LaunchScriptPrimalCarnagePS {
     $global:servercfg       = "DefaultGame.ini"
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} ${defaultmap}?game=PrimalCarnageGame.PCTeamDeathMatchGame?MaxPlayers=${maxplayers}?NumPublicConnections=${maxplayers}?MaxSpectators=0?TimeLimit=30?AdminPassword=${rconpassword}?GamePassword=${serverpassword}?bIsLanMatch=false?MatchTimeLimit=0?MatchScoreTarget=2?RoundTimeLimit=480?RoundScoreTarget=50?BalanceTeams=false?bIsDedicated=true -seekfreeloadingserver")'
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
 } 

@@ -36,7 +36,7 @@ Function New-LaunchScriptRemnantsPS {
         $global:servercfg       = "ServerConfig.ini"
         #                       Server Launch Command
         $global:launchParams    = '@("${executable} -MultiHome=${ip} -Port=${port} -QueryPort=${queryport} -log -force_steamclient_link")'
-          # Get User Input version must be set to 0
+          # Advanced must be set to "0"
         Get-UserInput
         # Download Game-Server-Config
         # Get-Servercfg

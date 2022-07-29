@@ -37,7 +37,7 @@ Function  New-LaunchScriptSE4serverPS {
     $global:servercfg           = "server.cfg"
     #                           Server Launch Command
     $global:launchParams        = '@("${executable} exec ${servercfgdir}\${servercfg} -logdir=${serverdir}")'
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Install Adjustment
     New-servercfgse4

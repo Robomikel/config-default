@@ -40,7 +40,7 @@ Function New-LaunchScriptGearStormPS {
     $global:launchParams    = '@("${executable} /game/maps/${defaultmap}?Port=${port}?QueryPort=${queryport}?MaxPlayers=${maxplayers} -log")'
     #                                           /game/maps/Austrasia?Port=7777?QueryPort=27015?MaxPlayers=20 -log
   
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     # Download Game-Server-Config
     # Get-Servercfg

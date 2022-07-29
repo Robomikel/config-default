@@ -49,7 +49,7 @@ Function New-LaunchScriptTakedownPS {
     #                       Server Launch Command
     $global:launchParams    = '@("${executable} ${defaultmap}?MapVar=${gametype}?game=takedowngame.${gamemode}?listen=1?bIsLanMatch=${sv_lan}?NumPublicConnections=${maxplayers}? -­multihome=${ip} ­-port=${port} -­QueryPort=${queryport} ­-configsubdir=${gamedirname}  -seekfreeloadingserver")'
     #                             ${executable} ${defaultmap}?MapVar=${gametype}?game=takedowngame.${gamemode}?listen=1?bIsLanMatch=${sv_lan}?NumPublicConnections=${maxplayers}? -­multihome=${ip} ­-port=${port} -­QueryPort=${queryport} ­-configsubdir=${gamedirname}  -seekfreeloadingserver
-    # Get User Input version must be set to 0
+    # Advanced must be set to "0"
     Get-UserInput
     Get-Infomessage "***  starting Server before Setting $servercfg Please Wait ***" 'info'
     # Set-Location $executabledir

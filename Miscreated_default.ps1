@@ -45,7 +45,7 @@ Function New-LaunchScriptMiscreatedPS {
         $global:servercfg       = "HOSTING.CFG"
         #                       Server Launch Command
         $global:launchParams    = '@("${executable} +sv_bind ${ip} +sv_maxplayers ${maxplayers} +map islands -sv_port ${port} +http_startserver +sv_servername=`"${hostname}`" -mis_gameserverid 100")'
-        # Get User Input version must be set to 0
+        # Advanced must be set to "0"
         Get-UserInput
         # Install Adjustment         
         New-Item $servercfgdir\HOSTING.CFG -Force | Out-File -Append -Encoding Default  $ssmlog
