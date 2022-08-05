@@ -10,6 +10,8 @@ Function New-LaunchScriptDayZserverPS {
     # default reserved ports are 2302 - 2306 gameports must be N+100 ie 2402-2406  "
     #                       Server Port 
     $global:port            = "2302"
+    #                       Query Port
+    $global:queryport       = "27016"
     #                       Server Name
     $global:hostname        = "SERVERNAME"
     #                       Maxplayers
@@ -61,7 +63,7 @@ Function New-LaunchScriptDayZserverPS {
     #                       Server Executable Directory
     $global:executabledir   = "$serverdir"
     #                       Gamedig Query
-    $global:querytype       = "arma3"
+    $global:querytype       = "dayz"
     #                       Game Process
     $global:process         = "DayZServer_x64"
     #                       Log Directory
