@@ -81,7 +81,7 @@ Function Get-InstallChangesdoi {
      Else {
         New-Item $mapcycletxtfile -Force | Out-File -Append -Encoding Default  $ssmlog
      }
-    Get-Gamemodedoi
+    # Get-Gamemodedoi
 }
 Function Get-Playlistdoi {
     Get-Infomessage "Checking playlist" 'info'
