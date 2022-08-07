@@ -70,7 +70,7 @@ Function New-LaunchScriptInsserverPS {
     Select-EditSourceCFG
     # Install Adjustment
     Get-InstallChangesINS
-    Get-Gamemode
+    # Get-Gamemode
 }
 
 
