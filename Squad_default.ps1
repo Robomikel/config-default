@@ -39,7 +39,7 @@ Function New-LaunchScriptSquadserverPS {
     #                               Server Executable
     $global:executable              = "SquadGameServer"
     #                               Server Executable Directory
-    $global:executabledir           = "$serverdir"
+    $global:executabledir           = "$serverdir\SquadGame\Binaries\Win64"
     #                               Gamedig Query
     $global:querytype               = "protocol-valve"
     #                               Game Process
