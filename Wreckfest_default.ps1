@@ -26,7 +26,7 @@ Function New-LaunchScriptWreckfestPS {
     #                       Server Config Directory
     $global:servercfgdir    = "$serverdir"
     #                       Server Executable
-    $global:executable      = "server\Wreckfest"
+    $global:executable      = "Wreckfest"
     #                       Server Executable Directory
     $global:executabledir   = "$serverdir"
     #                       Gamedig Query
