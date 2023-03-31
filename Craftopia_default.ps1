@@ -17,9 +17,9 @@ Function New-LaunchScriptCraftopiaPS {
         #                               System Directory
         $global:systemdir = "$serverdir"
         #                               Server Config Directory
-        $global:servercfgdir = "$env:LOCALAPPDATA" + 'Low' + "\PocketPair\Craftopia"
+        $global:servercfgdir = "$serverdir"
         #                               Appdata Directory
-        $global:saves                   = 'Low' + "\PocketPair"
+        # $global:saves                   = "PocketPair"
         #                               Server Executable
         $global:executable = "Craftopia"
         #                               Server Executable Directory
