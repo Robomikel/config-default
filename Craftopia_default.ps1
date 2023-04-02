@@ -40,6 +40,11 @@ Function New-LaunchScriptCraftopiaPS {
         Get-UserInput
         # Download Game-Server-Config
         # Get-Servercfg
+        Set-Location $executabledir
+        Start-Process cmd "/c start Craftopia.exe"
+        Start-sleep -Seconds 30
+        Get-StopServer    
+        Set-Location $currentdir
 }
 
 
