@@ -4,8 +4,8 @@ Function New-LaunchScriptWreckfestPS {
     ################## Change Default Variables #################
     #                       Server Name
     $global:hostname        = "SERVERNAME"
-    #                       Password
-    $global:rconpassword    = "$RANDOMPASSWORD"
+    #                       Server Password
+    $global:serverpassword  = " "
     #                       SV_LAN
     $global:sv_lan          = "0"
     #                       Maxplayers
@@ -42,7 +42,8 @@ Function New-LaunchScriptWreckfestPS {
     #                       Game-Server-Config
     $global:servercfg       = "server_config.cfg"
     #                       Server Launch Command
-    $global:launchParams    = '@("${executable} -s server_config=${servercfg}")'
+    $global:launchParams    = '@("${executable} -s server_config=${servercfg} -server_set server_name=${hostname} max_players=${maxplayers} password=${serverpassword} steam_port=${port} query_port=${queryport} game_port=${clientport}")'
+    #                             Wreckfest.exe -s server_config=server_config.cfg -server_set server_name=myserver max_players=12 password=secret
     
     # Advanced must be set to "0"
     Get-UserInput
@@ -66,7 +67,7 @@ Function Copy-wfservercfg {
     Else {
         # New-Item $serverdir\$servercfg -Force | Out-File -Append -Encoding Default  $ssmlog
         copy-Item $defaultwfservercfg $serverdir\$servercfg
-        Set-wfservercfg
+        # Set-wfservercfg
     }
        
 }
