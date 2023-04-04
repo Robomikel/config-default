@@ -4,10 +4,10 @@ Function New-LaunchScriptWreckfestPS {
     ################## Change Default Variables #################
     #                       Server Name
     $global:hostname        = "SERVERNAME"
-    #                       Password
-    $global:rconpassword    = "$RANDOMPASSWORD"
+    #                       Server Password
+    $global:serverpassword  = " "
     #                       SV_LAN
-    $global:sv_lan          = "0"
+    # $global:sv_lan          = "0"
     #                       Maxplayers
     $global:maxplayers      = "24"    
     #                       Server Query Port  
@@ -42,7 +42,8 @@ Function New-LaunchScriptWreckfestPS {
     #                       Game-Server-Config
     $global:servercfg       = "server_config.cfg"
     #                       Server Launch Command
-    $global:launchParams    = '@("${executable} -s server_config=${servercfg}")'
+    $global:launchParams    = '@("${executable} -s server_config=${servercfg} -server_set server_name=${hostname} max_players=${maxplayers} password=${serverpassword}")'
+    #                             Wreckfest.exe -s server_config=server_config.cfg -server_set server_name=myserver max_players=12 password=secret
     
     # Advanced must be set to "0"
     Get-UserInput
@@ -78,10 +79,10 @@ Function Set-wfservercfg {
         ((Get-Content -path $serverdir\$servercfg -Raw) -replace "server_name=", "server_name=$hostname") | Set-Content -Path $serverdir\$servercfg
     
         Get-Infomessage "edit password= server_config.cfg" 'info'
-        ((Get-Content -path $serverdir\$servercfg -Raw) -replace "password=wreckfest", "password=$rconpassword ") | Set-Content -Path $serverdir\$servercfg
+        ((Get-Content -path $serverdir\$servercfg -Raw) -replace "password=wreckfest", "password=$serverpassword ") | Set-Content -Path $serverdir\$servercfg
 
-        Get-Infomessage "edit lan=0 server_config.cfg" 'info'
-        ((Get-Content -path "$serverdir\$servercfg "-Raw) -replace "lan=0", "lan=$sv_lan") | Set-Content -Path $serverdir\$servercfg
+        # Get-Infomessage "edit lan=0 server_config.cfg" 'info'
+        # ((Get-Content -path "$serverdir\$servercfg "-Raw) -replace "lan=0", "lan=$sv_lan") | Set-Content -Path $serverdir\$servercfg
 
         Get-Infomessage "edit steam_port server_config.cfg" 'info'
         ((Get-Content -path $serverdir\$servercfg -Raw) -replace "steam_port=27015", "steam_port=$port") | Set-Content -Path $serverdir\$servercfg
