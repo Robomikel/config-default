@@ -7,7 +7,7 @@ Function New-LaunchScriptWreckfestPS {
     #                       Server Password
     $global:serverpassword  = " "
     #                       SV_LAN
-    $global:sv_lan          = "0"
+    # $global:sv_lan          = "0"
     #                       Maxplayers
     $global:maxplayers      = "24"    
     #                       Server Query Port  
