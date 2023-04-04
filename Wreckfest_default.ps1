@@ -42,7 +42,7 @@ Function New-LaunchScriptWreckfestPS {
     #                       Game-Server-Config
     $global:servercfg       = "server_config.cfg"
     #                       Server Launch Command
-    $global:launchParams    = '@("${executable} -s server_config=${servercfg} -server_set server_name=${hostname} max_players=${maxplayers} password=${serverpassword} steam_port=${port} query_port=${queryport} game_port=${clientport}")'
+    $global:launchParams    = '@("${executable} -s server_config=${servercfg} -server_set server_name=${hostname} max_players=${maxplayers} password=${serverpassword}")'
     #                             Wreckfest.exe -s server_config=server_config.cfg -server_set server_name=myserver max_players=12 password=secret
     
     # Advanced must be set to "0"
@@ -67,7 +67,7 @@ Function Copy-wfservercfg {
     Else {
         # New-Item $serverdir\$servercfg -Force | Out-File -Append -Encoding Default  $ssmlog
         copy-Item $defaultwfservercfg $serverdir\$servercfg
-        # Set-wfservercfg
+        Set-wfservercfg
     }
        
 }
@@ -79,10 +79,10 @@ Function Set-wfservercfg {
         ((Get-Content -path $serverdir\$servercfg -Raw) -replace "server_name=", "server_name=$hostname") | Set-Content -Path $serverdir\$servercfg
     
         Get-Infomessage "edit password= server_config.cfg" 'info'
-        ((Get-Content -path $serverdir\$servercfg -Raw) -replace "password=wreckfest", "password=$rconpassword ") | Set-Content -Path $serverdir\$servercfg
+        ((Get-Content -path $serverdir\$servercfg -Raw) -replace "password=wreckfest", "password=$serverpassword ") | Set-Content -Path $serverdir\$servercfg
 
-        Get-Infomessage "edit lan=0 server_config.cfg" 'info'
-        ((Get-Content -path "$serverdir\$servercfg "-Raw) -replace "lan=0", "lan=$sv_lan") | Set-Content -Path $serverdir\$servercfg
+        # Get-Infomessage "edit lan=0 server_config.cfg" 'info'
+        # ((Get-Content -path "$serverdir\$servercfg "-Raw) -replace "lan=0", "lan=$sv_lan") | Set-Content -Path $serverdir\$servercfg
 
         Get-Infomessage "edit steam_port server_config.cfg" 'info'
         ((Get-Content -path $serverdir\$servercfg -Raw) -replace "steam_port=27015", "steam_port=$port") | Set-Content -Path $serverdir\$servercfg
