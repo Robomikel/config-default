@@ -23,6 +23,14 @@ Function New-LaunchScriptDNLPS {
         #                       Server Name
         $global:hostname        = "SERVERNAME"
         ##############################/\##############################
+        # IMPORTANT: need to COPY below dlls to same dir as exe (\DNL\Binaries\Win64), if they are not there or steam services will not work
+        # steamclient.dll
+        # steamclient64.dll
+        # tier0_s.dll
+        # tier0_s64.dll
+        # vstdlib_s.dll
+        # vstdlib_s64.dll
+
             # 27015-27016 TCP/UDP
             # Required for steam clients to read server information.
             # If you don't have this, people will also not be able to see your server.
