@@ -3,8 +3,10 @@ Function New-LaunchScriptBOserverPS {
     # APP ID # 416880
     # https://steamcommunity.com/app/296300/discussions/1/135508662495143639/
     ################## Change Default Variables #################
-    #                       Server IP 
-     ${global:IP}           = "${ip}"
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     # GSLT used for running a public server.
     #                       Game Server Token
     # $global:GSLT     = "GameServerTokenHere"

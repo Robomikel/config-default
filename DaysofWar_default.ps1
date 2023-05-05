@@ -3,7 +3,10 @@ Function New-LaunchScriptdowserverPS {
     # APP ID # 541790
     # Wiki
     ################## Change Default Variables #################
-
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     #                       Server Port
     $global:port            = "7777"
     #                       Query Port

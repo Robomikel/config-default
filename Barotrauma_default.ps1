@@ -4,7 +4,10 @@ Function New-LaunchScriptBTserverPS {
     # APP ID # 1026340
     # 
     ################## Change Default Variables #################
-   
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     ##############################/\##############################
    
     # 27015/UDP

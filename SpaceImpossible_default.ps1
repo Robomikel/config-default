@@ -2,7 +2,10 @@ Function New-LaunchScriptSpacecImpossibleserverPS {
     # Space Impossible Dedicated Server
     # 1222650
     ################## Change Default Variables #################
-
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
   
     ##############################/\##############################
     

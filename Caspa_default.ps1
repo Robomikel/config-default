@@ -3,7 +3,10 @@ Function New-LaunchScriptCaspaServerPS {
     # APP ID # 667230
     # https://steamcommunity.com/sharedfiles/filedetails/?id=1178788612
     ################## Change Default Variables #################
-
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     ##############################/\##############################
     # 27014-27015/UDP
     # \Capsa\Saved\Config\WindowsServer\game.ini

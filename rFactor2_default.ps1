@@ -3,7 +3,10 @@ Function New-LaunchScriptrFactor2serverPS {
     # APP ID # 400300
     # https://docs.studio-397.com/users-guide/setting-up-a-dedicated-server
     ################## Change Default Variables #################
-
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     ##############################/\##############################
     
     # Multiplayer.JSON 

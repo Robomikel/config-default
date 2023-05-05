@@ -5,7 +5,10 @@ Function New-LaunchScriptacserverPS {
     #$global:systemdir="Assetto Corsa\Server"
     
     ################## Change Default Variables #################
-    
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"   
     ##############################/\##############################
     
     #TCP/UDP 9600

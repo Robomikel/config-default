@@ -2,6 +2,8 @@ Function New-LaunchScriptHurtWorldPS {
     #----------  Hurtworld dedicated server -------------------
     # APP ID # 	405100	
     ################## Change Default Variables #################
+    #                       Server IP
+    ${global:IP}            = "${ip}"
     #                       Server Name
     $global:hostname        = "SERVERNAME"
     #                       Password

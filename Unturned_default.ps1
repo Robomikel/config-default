@@ -3,10 +3,12 @@ Function New-LaunchScriptunturnedserverPS {
     # APP ID # 1110390
     # https://steamcommunity.com/sharedfiles/filedetails/?id=876902574
     ################## Change Default Variables ################# 
-    #                   Server Port 
-    $global:port        = "27018"
-    #                   Server Name
-    $global:hostname    = "SERVERNAME"
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Port 
+    $global:port            = "27018"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     ###########################/\#################################
     
     ###################### Do not change below #####################

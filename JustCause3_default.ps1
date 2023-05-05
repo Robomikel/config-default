@@ -3,6 +3,8 @@ Function New-LaunchScriptjc3serverPS {
     # APP ID # 619960
     ################## Change Default Variables #################
 
+    #                       Server IP
+    ${global:IP}            = "${ip}"
     #                       Server Name
     $global:hostname        = "SERVERNAME"
 

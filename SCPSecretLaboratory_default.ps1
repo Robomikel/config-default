@@ -2,9 +2,12 @@ Function New-LaunchScriptSCPSecretLaboratoryserverPS {
     # SCP: Secret Laboratory Dedicated Server
     # 996560
     ################## Change Default Variables #################
-
-    #                   Server Port 
-    $global:port        = "7777"
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
+    #                       Server Port 
+    $global:port            = "7777"
 
     ##############################/\##############################
     

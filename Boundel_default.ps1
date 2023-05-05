@@ -3,7 +3,10 @@ Function New-LaunchScriptboundelserverPS {
     # 454070
     ################## Change Default Variables ################# 
     #                       Requieres Steam Login
-
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     ###########################/\#################################
     # 8002 TCP/UDP
 

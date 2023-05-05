@@ -3,7 +3,8 @@ Function New-LaunchScriptDofDserverPS {
     # APP ID # 1088320
     # https://survivalservers.com/wiki/index.php?title=How_to_Create_a_Day_of_Dragons_Server_Guide
     ################## Change Default Variables #################
-
+    #                       Server IP
+    ${global:IP}            = "${ip}"
     #                       Server Name
     $global:hostname        = "SERVERNAME"
     ##############################/\##############################

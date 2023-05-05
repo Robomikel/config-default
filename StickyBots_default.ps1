@@ -16,8 +16,8 @@ Function New-LaunchScriptStickyBotsPS {
         # $global:defaultmap      = "TheIsland"
         # #                       Maxplayers
         # $global:maxplayers      = "70"
-        # #                       Server Name
-        # $global:hostname        = "SERVERNAME"
+        #                       Server Name
+        $global:hostname        = "SERVERNAME"
         ##############################/\##############################
         # port +1 :  7777==7778
         ###################### Do not change below #####################

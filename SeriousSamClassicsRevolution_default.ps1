@@ -2,6 +2,10 @@ Function New-LaunchScriptSeriousSamserverPS {
     # Serious Sam Classics: Revolution Dedicated Server
     # APP ID # 299310
     ################## Change Default Variables ################# 
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"  
     #                       Game Mode
     $global:gamemode        = "DefaultCoop"
     ###########################/\#################################

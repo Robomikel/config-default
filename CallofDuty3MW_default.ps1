@@ -3,7 +3,10 @@ Function New-LaunchScriptCOD3MWserverPS {
   # 42750
   # https://kb.firedaemon.com/support/solutions/articles/4000086728-call-of-duty-modern-warfare-3
   ################## Change Default Variables #################
-
+  #                       Server IP
+  ${global:IP}            = "${ip}"
+  #                       Server Name
+  $global:hostname        = "SERVERNAME"
   #                       Query Port
   $global:queryport       = "27014"
   #                       Server Port

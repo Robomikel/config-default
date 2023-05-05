@@ -2,6 +2,8 @@ Function New-LaunchScriptVanguard1944serverPS {
   # Vanguard: Normandy 1944 Dedicated Server
   # 1017070
   ################## Change Default Variables #################
+  #                       Server IP
+  ${global:IP}            = "${ip}"
   #                       Server Name
   $global:hostname        = "SERVERNAME"
   

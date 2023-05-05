@@ -3,6 +3,10 @@ Function New-LaunchScriptBlackwakePS {
     # APP ID # 423410
     # https://steamcommunity.com/app/420290/discussions/0/133258092252748163/
     ################## Change Default Variables #################
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     ##############################/\##############################
     
     

@@ -2,7 +2,10 @@
     # Iron Armada Dedicated Server
     # APP ID # 770340
     ################## Change Default Variables ################# 
-
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     ###########################/\#################################
     
     ###################### Do not change below #####################

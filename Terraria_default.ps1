@@ -3,7 +3,7 @@ Function New-LaunchScriptTerrariaPS {
     # APP ID # 105600
     ################## Change Default Variables #################
     #                       Server IP
-    # ${global:IP}            = "${ip}"
+    ${global:IP}            = "${ip}"
     #                       Server Port
     $global:port            = "7777"
     #                       Query Port

@@ -2,7 +2,10 @@ Function New-LaunchScriptOnesetPS {
     # Onset Dedicated Server
     # APP ID # 1204170
     ################## Change Default Variables #################
-
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     ##############################/\##############################
     ###################### Do not change below #####################
     #                       System Directory

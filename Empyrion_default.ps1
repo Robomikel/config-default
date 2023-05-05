@@ -4,6 +4,8 @@ Function New-LaunchScriptempserverPS {
     ################## Change Default Variables #################
     #                       Server Port
     $global:port            = "30000"
+    #                       Server IP
+    ${global:IP}            = "${ip}"
     #                       Server Name
     $global:hostname        = "SERVERNAME"
     ###########################/\#################################

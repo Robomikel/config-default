@@ -3,7 +3,8 @@ Function  New-LaunchScriptSE4serverPS {
     # APP ID # 568880
     # http://snipereliteadmin.com/#!/SE4DedicatedServerSetup  
     ################## Change Default Variables #################
-
+    #                       Server IP
+    ${global:IP}            = "${ip}"
     #                       Server Name
     $global:hostname        = "SERVERNAME"
     ##############################/\##############################
