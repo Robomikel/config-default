@@ -21,7 +21,7 @@ Function New-LaunchScriptBlackwakePS {
     #                       Gamedig Query
     $global:querytype       = "protocol-valve"
     #                       Game Process
-    $global:process         = "BlackwakeServer"
+    $global:process         = "BODS"
     #                       Log Directory
     $global:logdirectory    = "$serverdir"
     #                       Server Log
