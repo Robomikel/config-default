@@ -4,7 +4,10 @@ Function New-LaunchScriptminecraft_serverPS {
 
 
     ################## Change Default Variables #################
-
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     ###########################/\#################################
 
     # 25565 TCP/UDP IPV4

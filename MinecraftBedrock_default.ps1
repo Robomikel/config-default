@@ -4,7 +4,10 @@ Function New-LaunchScriptbedrock_serverPS {
 
 
     ################## Change Default Variables #################
-
+    #                       Server IP
+    ${global:IP}            = "${ip}"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     ###########################/\#################################
 
     # 19132 TCP/UDP IPV4
