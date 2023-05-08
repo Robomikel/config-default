@@ -9,6 +9,10 @@ Function New-LaunchScriptacserverPS {
     ${global:IP}            = "${ip}"
     #                       Server Name
     $global:hostname        = "SERVERNAME"   
+    #                       Server Port
+    $global:port            = "9600"
+    #                       Query Port
+    $global:queryport       = "8081"
     ##############################/\##############################
     
     #TCP/UDP 9600
