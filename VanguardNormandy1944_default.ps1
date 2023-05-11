@@ -6,7 +6,10 @@ Function New-LaunchScriptVanguard1944serverPS {
   ${global:IP}            = "${ip}"
   #                       Server Name
   $global:hostname        = "SERVERNAME"
-  
+  #                       Server Port 
+  $global:port            = "64090"
+  #                       Query Port
+  $global:queryport       = "64100"
   ##############################/\##############################
   # server.cfg
   # --net_lobby_default_port=64090

@@ -2,7 +2,7 @@ Function New-LaunchScriptAstroPS {
     # ASTRONEER Dedicated Server
     # APP ID # 728470
     ################## Change Default Variables #################
-    #                       Ext Server IP
+    #                       Server IP
     ${global:IP}            = "${ip}"
     #                       Server Port
     $global:port            = "7777"

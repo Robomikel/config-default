@@ -10,7 +10,9 @@ Function New-LaunchScriptpzserverPS {
     $global:hostname          = "SERVERNAME"
     #                         Rcon Password
     ${global:adminpassword}   = "$RANDOMPASSWORD"
-    
+    #                         Server Port 
+    $global:port              = "16261"
+ 
 
     ##############################/\##############################
     

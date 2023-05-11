@@ -10,6 +10,8 @@ Function New-LaunchScriptBT1944serverPS {
     $global:port            = "7777"
     #                       Query Port
     $global:queryport       = "7780"
+    #                       Server Name
+    $global:hostname        = "SERVERNAME"
     ##############################/\##############################
     ###################### Do not change below #####################
     #                       System Directory

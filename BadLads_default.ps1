@@ -3,7 +3,7 @@ Function New-LaunchScriptBadLadsPS {
     # APP ID # 1203110
     ################## Change Default Variables #################
     #                       Server IP
-    # ${global:IP}            = "${ip}"
+    ${global:IP}            = "${ip}"
     #                       Server Port
     $global:port            = "7777"
     #                       Server Name

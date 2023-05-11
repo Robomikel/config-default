@@ -7,7 +7,12 @@ Function New-LaunchScriptPCserverPS {
   ${global:IP}            = "${ip}"
   #                       Server Name
   $global:hostname        = "SERVERNAME"
-
+  #                       Server Port 
+  $global:port            = "27016"
+  #                       Query Port
+  $global:queryport       = "27015"
+  #                       Steam Port
+  $global:steamport       = "8766"
   ##############################/\##############################
     
   # steamPort : 8766

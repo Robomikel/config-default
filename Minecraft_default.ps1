@@ -8,6 +8,8 @@ Function New-LaunchScriptminecraft_serverPS {
     ${global:IP}            = "${ip}"
     #                       Server Name
     $global:hostname        = "SERVERNAME"
+    #                       Server Port 
+    $global:port            = "25565"
     ###########################/\#################################
 
     # 25565 TCP/UDP IPV4

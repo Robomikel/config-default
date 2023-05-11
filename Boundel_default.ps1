@@ -7,6 +7,8 @@ Function New-LaunchScriptboundelserverPS {
     ${global:IP}            = "${ip}"
     #                       Server Name
     $global:hostname        = "SERVERNAME"
+    #                       Server Port 
+    $global:port            = "8002"
     ###########################/\#################################
     # 8002 TCP/UDP
 

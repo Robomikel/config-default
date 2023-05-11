@@ -2,6 +2,8 @@ Function New-LaunchScriptSdtdserverPS {
     #----------   7 Days to Die Server Install Function   -------
     # APP ID # 294420
     ################## Change Install Variables ################# 
+    #                       Server IP
+    ${global:IP}            = "${ip}"
     #                       Server Port 
     $global:port            = "26900"
     #                       Server Name

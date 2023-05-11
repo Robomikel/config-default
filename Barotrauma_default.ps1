@@ -8,6 +8,10 @@ Function New-LaunchScriptBTserverPS {
     ${global:IP}            = "${ip}"
     #                       Server Name
     $global:hostname        = "SERVERNAME"
+    #                       Server Port 
+    $global:port            = "27016"
+    #                       Query Port
+    $global:queryport       = "27015"
     ##############################/\##############################
    
     # 27015/UDP

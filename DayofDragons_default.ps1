@@ -7,6 +7,10 @@ Function New-LaunchScriptDofDserverPS {
     ${global:IP}            = "${ip}"
     #                       Server Name
     $global:hostname        = "SERVERNAME"
+    #                       Server Port 
+    $global:port            = "7777"
+    #                       Query Port
+    $global:queryport       = "27015"
     ##############################/\##############################
     # Add an incoming rule to your Windows Firewall 
     # to allow UDP port 27015 as well as 27016, and 7777

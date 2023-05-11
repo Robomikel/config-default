@@ -2,6 +2,8 @@ Function  New-LaunchScriptavserverPS {
         # Avorion Dedicated Server
         # APP ID # 565060  
         ################## Change Default Variables #################
+        #                       Server IP
+        ${global:IP}            = "${ip}"
         #                       Maxplayers
         $global:maxplayers      = "10"
         #                       Server Difficulty

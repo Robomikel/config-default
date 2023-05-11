@@ -8,6 +8,8 @@ Function New-LaunchScriptSeriousSamserverPS {
     $global:hostname        = "SERVERNAME"  
     #                       Game Mode
     $global:gamemode        = "DefaultCoop"
+    #                       Server Port 
+    $global:port            = "27015"
     ###########################/\#################################
     
     # DefaultCoop

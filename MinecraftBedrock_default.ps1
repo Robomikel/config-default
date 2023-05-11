@@ -8,6 +8,8 @@ Function New-LaunchScriptbedrock_serverPS {
     ${global:IP}            = "${ip}"
     #                       Server Name
     $global:hostname        = "SERVERNAME"
+    #                       Server Port 
+    $global:port            = "19132"
     ###########################/\#################################
 
     # 19132 TCP/UDP IPV4

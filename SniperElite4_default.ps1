@@ -12,7 +12,7 @@ Function  New-LaunchScriptSE4serverPS {
     # Server.AuthPort 8701
     # Server.GamePort 24001
     # Server.UpdatePort 23001
-    #Server.LobbyPort 25001
+    # Server.LobbyPort 25001
     
     
     ###################### Do not change below #####################

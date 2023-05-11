@@ -7,7 +7,8 @@ Function New-LaunchScriptjc2serverPS {
     ${global:IP}            = "${ip}"
     #                       Server Name
     $global:hostname        = "SERVERNAME"
-
+    #                       Server Port 
+    $global:port            = "7777"
 
     ##############################/\##############################
     
