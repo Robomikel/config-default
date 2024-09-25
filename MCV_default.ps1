@@ -76,7 +76,7 @@ Function New-LaunchScriptMCVserverPS {
   # Advanced must be set to "0"
   Get-UserInput
   # Download Game-Server-Config
-  Get-Servercfg
+  #Get-Servercfg
   # Edit Server Game-Server-Config
   #Select-EditSourceCFG
   # Rename Source $executable.exe
