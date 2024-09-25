@@ -16,7 +16,7 @@ Function New-LaunchScriptMCVserverPS {
   $global:defaultmap      = "mcv_camp" 
   #                       Max Players 
   $global:maxplayers      = "24"
-  #						  Game Type
+  #						            Game Type
   $global:gametype        = "0"
   #                       Game Mode
   $global:gamemode        = "0"
@@ -25,7 +25,7 @@ Function New-LaunchScriptMCVserverPS {
   #                       Rcon Password
   $global:rconpassword    = "$RANDOMPASSWORD"
   ##############################/\##############################
-  # ] cl_game_mode_list (to get full up to date listing)
+  # ] sv/cl_game_mode_list (to get full up to date listing)
 # GameType: 0 - classic
 # 	GameMode: 0 - TeamDeathmatch
 # 	GameMode: 1 - Aliens
@@ -90,17 +90,15 @@ Function Get-MCVdefaultCfg {
   New-Item $servercfgdir\$servercfg -Force
   Add-Content   $servercfgdir\$servercfg `
   "  
-sv_password   // only needed to make your server private.
-sv_contact your@email.com 
-
 //-----------------------------------------------
 // Default MCV Dedicated Server Configuration File
 // By SHOUBI and Robomikel
 //-----------------------------------------------
 
 // Set the Host Name
-hostname $hostname
-//sv_password "" //public or password protected server!
+hostname `"$hostname`"
+//sv_password `"`" //public or password protected server!
+sv_contact `"your@email.com`" 
 
 // HTTP redirect download URL
 sv_downloadurl `"`"
@@ -109,7 +107,7 @@ sv_allowdownload 1
 // ........................... RCON Configuration .......................... //
 
 // RCON - remote console password.
-rcon_password $RCONPASSWORD
+rcon_password `"$RCONPASSWORD`"
 
 // Number of minutes to ban users who fail rcon authentication
 // min. 0
@@ -126,7 +124,9 @@ sv_alltalk 1
 bot_quota 20
 bot_quota_mode `"fill`"
 sv_allow_votes 0 //disable vote to avoid too much abuse
-mp_autokick 0 // avoid getting kick due to inactivity use afk manager plugin for better results
+mp_autokick 1 
+sv_pure 0 
+sv_allow_user_workshop_content 1 //Allow users to join with their own workshop content mounted.
 
 //----------------------------------------------
 // server logging
