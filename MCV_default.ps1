@@ -56,13 +56,13 @@ Function New-LaunchScriptMCVserverPS {
   #                       Server Config Directory
   $global:servercfgdir    = "$serverdir\vietnam\cfg"
   #                       Server Executable 
-  $global:executable      = "srcds_x64"
+  $global:executable      = "mcv_x64"
   #                       Server Executable Directory
   $global:executabledir   = "$serverdir"
   #                       Gamedig Query
   $global:querytype       = "protocol-valve"
   #                       Game Process
-  $global:process         = "srcds_x64"
+  $global:process         = "mcv_x64"
   #                       Log Directory
   $global:logdirectory    = "$serverdir\vietnam"
   #                       Server Log
@@ -80,7 +80,7 @@ Function New-LaunchScriptMCVserverPS {
   # Edit Server Game-Server-Config
   #Select-EditSourceCFG
   # Rename Source $executable.exe
-  #Select-RenameSource
+  Select-RenameSource
   Get-MCVdefaultCfg
 }
 
