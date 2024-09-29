@@ -36,9 +36,9 @@ Function New-LaunchScriptsofserverPS {
     #                       Game Process
     $global:process         = "SonsOfTheForestDS"
     #                       Log Directory
-    $global:logdirectory    = "$serverdir"
+    $global:logdirectory    = "$($env:LOCALAPPDATA+"low")\$saves\SonsOfTheForestDS\logs"
     #                       Server Log
-    $global:consolelog      = "console.log"
+    $global:consolelog      = "sotf_log*.txt"
     #                       Game-Server-Config
     $global:servercfg       = "dedicatedserver.cfg"
     #                       Server Launch Command
