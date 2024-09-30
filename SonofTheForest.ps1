@@ -80,7 +80,7 @@ Function Get-ServerConfig {
   `"LogFilesEnabled`": true,
   `"TimestampLogFilenames`": true,
   `"TimestampLogEntries`": true,
-  `"SkipNetworkAccessibilityTest`": false,
+  `"SkipNetworkAccessibilityTest`": $true,
   `"GameSettings`": {},
   `"CustomGameModeSettings`": {}
 }
