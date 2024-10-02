@@ -48,7 +48,7 @@ Function New-LaunchScriptArkPS {
         # Get-Servercfg
         # Edit Server Game-Server-Config
         Select-EditSourceCFG
-} 
+
 # Function Get-ServerConfig {
 #   Get-Infomessage " Creating server.cfg " 'info'
 #   New-Item $servercfgdir\$servercfg -Force
@@ -272,3 +272,4 @@ Add-Content   $servercfgdir\Game.ini AutoPvEStartTimeSeconds=0
 Add-Content   $servercfgdir\Game.ini AutoPvEStopTimeSeconds=0
 # "
 # }
+}
