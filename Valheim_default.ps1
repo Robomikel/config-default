@@ -26,7 +26,7 @@ Function New-LaunchScriptvalheimPS {
     #                               Server Config Directory
     $global:servercfgdir            = "$serverdir"
     #                               Appdata Directory
-    $global:saves                   = "IronGate"
+    # $global:saves                   = "IronGate"
     #                               Server Executable
     $global:executable              = "valheim_server"
     #                               Server Executable Directory
@@ -50,7 +50,7 @@ Function New-LaunchScriptvalheimPS {
     #                               Server Launch Command
     #$global:launchParams           = '@("${executable} -nographics -batchmode -name ${hostname} -port ${port} -world ${defaultmap} -password ${serverpassword} -savedir [PATH] -logfile ${logdirectory}\Serverlog-$date.log")'
     # 
-    $global:launchParams            = @("${executable} -nographics -batchmode -name `"${hostname}`" -port ${port} -world `"${defaultmap}`" -password `"${serverpassword}`" -logfile ${logdirectory}\Serverlog-$date.log")
+    $global:launchParams            = @("${executable} -nographics -batchmode -name `"${hostname}`" -port ${port} -world `"${defaultmap}`" -password `"${serverpassword}`" -savedir $serverdir\saves -logfile ${logdirectory}\Serverlog-$date.log")
     #                                    valheim_server -nographics -batchmode -name "My server" -port 2456 -world "Dedicated" -password "secret"
     # Advanced must be set to "0"
     Get-UserInput
