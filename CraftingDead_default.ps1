@@ -53,23 +53,46 @@ Function New-LaunchScriptCraftingDeadPS {
 } 
 function Get-CraftingDeadInstallChanges {
 
-    new-item -Path ${servercfgdir} -Name ${servercfg} -ItemType File -Value `
-"
-{
-    `"game_title`": `"$hostname`",
-    `"game_description`": `"`",
-    `"game_port`": $port,
-    `"steam_port_messages`": $queryport,
-    `"world_name`": `"$worldname`",
-    `"world_map`": `"Fellvern Island`",
-    `"player_count`": $maxplayers,
-    `"player_admins`": [
-    ],
-    `"rcon`": false,
-    `"rcon_port`": $rconport,
-    `"rcon_password`": `"$rconpassword`"
-}
-"
+    Get-Infomessage " Creating $servercfg " 'info'
+    Write-log "Create $servercfgdir\$servercfg"
+    Get-Infomessage "***  Editing Default Server Name $servercfg ***" 'info' 
+    $a = Get-Content "$servercfgdir\$servercfg" -raw | ConvertFrom-Json
+    $a.game_title = "${hostname}"
+    $a.game_port = ${port}    
+    $a.steam_port_messages = ${queryport}
+    $a.world_name = "${worldname}"
+    $a.player_count = ${maxplayers} 
+    $a.rcon_port = ${rconport}
+    $a.rcon_password = "${rconpassword}"
+    
+    # $a.IpAddress = "${ip}"
+    # $a.Password = "${serverpassword}" 
+    # $a.SkipNetworkAccessibilityTest = "$true"
+    # $a.Rcon.Enabled = $true 
+
+    Get-Infomessage "***  setting Default Server Name $servercfg ***" 'info' 
+    # $a | ConvertTo-Json | set-content "$servercfgdir\$servercfg" -Force
+    $a | ConvertTo-Json -Depth 10 | set-content "$servercfgdir\$servercfg" -Force
+
+
+
+#     new-item -Path ${servercfgdir} -Name ${servercfg} -ItemType File -Value `
+# "
+# {
+#     `"game_title`": `"$hostname`",
+#     `"game_description`": `"`",
+#     `"game_port`": $port,
+#     `"steam_port_messages`": $queryport,
+#     `"world_name`": `"$worldname`",
+#     `"world_map`": `"Fellvern Island`",
+#     `"player_count`": $maxplayers,
+#     `"player_admins`": [
+#     ],
+#     `"rcon`": false,
+#     `"rcon_port`": $rconport,
+#     `"rcon_password`": `"$rconpassword`"
+# }
+# "
 
 }
 

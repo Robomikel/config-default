@@ -72,5 +72,5 @@ function Get-isleofyoreInstallChanges {
     $a.ServerPassword = "${serverpassword}" 
     $a.PublicConnections = "${maxplayers}" 
     Get-Infomessage "***  setting Default Server Name $servercfg ***" 'info' 
-    $a | ConvertTo-Json | set-content "$serverdir\IslesOfYore\Saved\Yore\session.json"
+    $a | ConvertTo-Json -Depth 10 | set-content "$serverdir\IslesOfYore\Saved\Yore\session.json"
 }

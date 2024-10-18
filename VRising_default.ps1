@@ -65,14 +65,14 @@ Function New-LaunchScriptVRisingserverPS {
 function Get-vrisingInstallChanges {
    # if (!(Test-Path "$servercfgdir\ServerHostSettings.json")) {
         Get-Infomessage "***  Copying $servercfg to -persistentDataPath ***" 'info'
-        Copy-Item -Path "$serverdir\VRisingServer_Data\StreamingAssets\Settings\ServerHostSettings.json" -Destination "$servercfgdir\ServerHostSettings.json" -Force
+        Copy-Item -Path "$serverdir\VRisingServer_Data\StreamingAssets\Settings\$servercfg" -Destination "$servercfgdir\$servercfg" -Force
     #    if (!(Test-Path "$servercfgdir\ServerGameSettings.json")) {
             Get-Infomessage "***  Copying ServerGameSettings.json to -persistentDataPath ***" 'info'
             Copy-Item -Path "$serverdir\VRisingServer_Data\StreamingAssets\Settings\ServerGameSettings.json" -Destination "$servercfgdir\ServerGameSettings.json" -Force
     #    }
   #  } 
     Get-Infomessage "***  Editing Default Server Name $servercfg ***" 'info' 
-    $a = Get-Content "$servercfgdir\ServerHostSettings.json" -raw | ConvertFrom-Json
+    $a = Get-Content "$servercfgdir\$servercfg" -raw | ConvertFrom-Json
     $a.Name = "${hostname}"
     $a.Port = ${port}
     $a.QueryPort = ${queryport}
@@ -83,5 +83,6 @@ function Get-vrisingInstallChanges {
     $a.Rcon.Port = ${rconport}
     $a.Rcon.Password = "${rconpassword}"
     Get-Infomessage "***  setting Default Server Name $servercfg ***" 'info' 
-    $a | ConvertTo-Json | set-content "$servercfgdir\ServerHostSettings.json" -Force
+    # $a | ConvertTo-Json | set-content "$servercfgdir\ServerHostSettings.json" -Force
+    $a | ConvertTo-Json -Depth 10 | set-content "$servercfgdir\$servercfg" -Force
 }

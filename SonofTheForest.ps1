@@ -2,20 +2,22 @@ Function New-LaunchScriptsofserverPS {
     #----------   Son of the Forest Server Install Function   -------------------
     # APP ID # 2465200
     ################## Change Default Variables #################
-    #                   Server IP
-    $global:ip          = "${ip}"
-    #                   Server Name
-    $global:hostname    = "SERVERNAME"
-    #                   Steam Port
-    $global:steamport   = "8766"
-    #                   Server Port
-    $global:port        = "27015"
-    #                   Server Query Port
-    $global:queryport   = "27016"
-    #                   Server Max Players
-    $global:maxplayers  = "8"
-    #                   Server Difficulty
-    ${global:gamemode}  = "Normal"
+    #                           Server IP
+    $global:ip                  = "${ip}"
+    #                           Server Name
+    $global:hostname            = "SERVERNAME"
+    #                           Server Password
+    $global:serverpassword      = ""
+    #                           Steam Port
+    $global:steamport           = "8766"
+    #                           Server Port
+    $global:port                = "27015"
+    #                           Server Query Port
+    $global:queryport           = "27016"
+    #                           Server Max Players
+    $global:maxplayers          = "8"
+    #                           Server Difficulty
+    ${global:gamemode}          = "Normal"
 
     ##############################/\##############################
     # In server.cfg
@@ -58,31 +60,48 @@ Function New-LaunchScriptsofserverPS {
 Function Get-ServerConfig {
     Get-Infomessage " Creating $servercfg " 'info'
     Write-log "Create $servercfgdir\$servercfg"
-    New-Item $servercfgdir\$servercfg -Force
-    Add-Content   $servercfgdir\$servercfg `
-  "
-  {
-  `"IpAddress`": `"$ip`",
-  `"GamePort`": $steamport,
-  `"QueryPort`": $queryport,
-  `"BlobSyncPort`": 9700,
-  `"ServerName`": `"$hostname`",
-  `"MaxPlayers`": $maxplayers,
-  `"Password`": `"`",
-  `"LanOnly`": false,
-  `"SaveSlot`": 1,
-  `"SaveMode`": `"Continue`",
-  `"GameMode`": `"$gamemode`",
-  `"SaveInterval`": 600,
-  `"IdleDayCycleSpeed`": 0.0,
-  `"IdleTargetFramerate`": 5,
-  `"ActiveTargetFramerate`": 60,
-  `"LogFilesEnabled`": true,
-  `"TimestampLogFilenames`": true,
-  `"TimestampLogEntries`": true,
-  `"SkipNetworkAccessibilityTest`": $true,
-  `"GameSettings`": {},
-  `"CustomGameModeSettings`": {}
-}
-  "
+    Get-Infomessage "***  Editing Default Server Name $servercfg ***" 'info' 
+    $a = Get-Content "$servercfgdir\$servercfg" -raw | ConvertFrom-Json
+    $a.IpAddress = "${ip}"
+    $a.GamePort = ${steamport}
+    $a.QueryPort = ${queryport}
+    $a.Password = "${serverpassword}" 
+    $a.MaxPlayers = ${maxplayers} 
+    $a.ServerName = "${hostname}"
+    $a.GameMode = "${gamemode}"
+    $a.SkipNetworkAccessibilityTest = "$true"
+    # $a.Rcon.Enabled = $true 
+    # $a.Rcon.Port = ${rconport}
+    # $a.Rcon.Password = "${rconpassword}"
+    Get-Infomessage "***  setting Default Server Name $servercfg ***" 'info' 
+    # $a | ConvertTo-Json | set-content "$servercfgdir\$servercfg" -Force
+    $a | ConvertTo-Json -Depth 10 | set-content "$servercfgdir\$servercfg" -Force
+
+#     New-Item $servercfgdir\$servercfg -Force
+#     Add-Content   $servercfgdir\$servercfg `
+#   "
+#   {
+#   `"IpAddress`": `"$ip`",
+#   `"GamePort`": $steamport,
+#   `"QueryPort`": $queryport,
+#   `"BlobSyncPort`": 9700,
+#   `"ServerName`": `"$hostname`",
+#   `"MaxPlayers`": $maxplayers,
+#   `"Password`": `"`",
+#   `"LanOnly`": false,
+#   `"SaveSlot`": 1,
+#   `"SaveMode`": `"Continue`",
+#   `"GameMode`": `"$gamemode`",
+#   `"SaveInterval`": 600,
+#   `"IdleDayCycleSpeed`": 0.0,
+#   `"IdleTargetFramerate`": 5,
+#   `"ActiveTargetFramerate`": 60,
+#   `"LogFilesEnabled`": true,
+#   `"TimestampLogFilenames`": true,
+#   `"TimestampLogEntries`": true,
+#   `"SkipNetworkAccessibilityTest`": $true,
+#   `"GameSettings`": {},
+#   `"CustomGameModeSettings`": {}
+# }
+#   "
 }

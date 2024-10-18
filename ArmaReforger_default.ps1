@@ -149,5 +149,5 @@ Function Edit-armareforgeservercfg {
     # $a.Rcon.Port = ${rconport}
     # $a.Rcon.Password = "${rconpassword}"
     Get-Infomessage "***  setting Default Server Name $servercfg ***" 'info' 
-    $a | ConvertTo-Json | set-content "$servercfgdir\$servercfg" -Force
+    $a | ConvertTo-Json -Depth 10 | set-content "$servercfgdir\$servercfg" -Force
 }
