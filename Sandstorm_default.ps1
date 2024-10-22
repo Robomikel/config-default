@@ -79,13 +79,17 @@ Function New-LaunchScriptInssserverPS {
         $launchParams += '")'
         $global:launchParams = $launchParams
         # Custom config 
-        mkdir $serverdir\Insurgency\Config\Server   >$null 2>&1
+        New-Item -ItemType Directory -Path $serverdir\Insurgency\Config\Server   >$null 2>&1
         $MapCyclePath = "$serverdir\Insurgency\Config\Server"  
-        mkdir $servercfgdir   >$null 2>&1
+        New-Item -ItemType Directory -Path $servercfgdir   >$null 2>&1
 
         # Creates a Default Admins.txt
         New-Item $MapCyclePath\Admins.txt -Force | Out-File -Append -Encoding Default  $ssmlog
         Add-Content  $MapCyclePath\Admins.txt $steamID64
+
+        # Creates a Default Motd.txt
+        New-Item $MapCyclePath\Motd.txt -Force | Out-File -Append -Encoding Default  $ssmlog
+        # Add-Content  $MapCyclePath\Motd.txt
     
         # Create a Default Mapcycle.txt 
         New-Item $MapCyclePath\Mapcycle.txt -Force | Out-File -Append -Encoding Default  $ssmlog
