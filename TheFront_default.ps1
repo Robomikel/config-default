@@ -51,6 +51,7 @@ Function New-LaunchScriptTheFrontPS {
         New-item -ItemType Directory -Name "TheFrontManager" -Path $systemdir
     }
     If(!(Test-Path $servercfgdir\$servercfg)){
+        Get-Infomessage "creating $servercfg" 'info'
         New-Item -ItemType File -Name $servercfgdir\$servercfg -Force
         Add-Content $servercfgdir\$servercfg [BaseServerConfig]
         Add-Content $servercfgdir\$servercfg IsCanMail=1.000000

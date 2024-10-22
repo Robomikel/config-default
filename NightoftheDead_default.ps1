@@ -47,6 +47,7 @@ Function New-LaunchScriptNotDserverPS {
     # Advanced must be set to "0"
     Get-UserInput
     # Install Adjustment
+    Get-Infomessage "***  starting Server before Setting $servercfg Please Wait ***" 'info'
     Set-Location $serverdir
     Start-Process cmd "/c StartServer.bat"
     while (!(Get-Process $process -ea SilentlyContinue )) {

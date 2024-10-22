@@ -43,16 +43,21 @@ Function New-LaunchScriptZSGOPS {
 
     Get-UserInput
     if((Test-Path $servercfgdir\$servercfg)){
+        Get-Infomessage "Checking $servercfg" 'info'
         $jsonFile = "$servercfgdir\$servercfg"
         $jsonData = Get-Content -Raw $jsonFile | ConvertFrom-Json
 
+        Get-Infomessage "edit $hostname  $servercfg" 'info'
         $jsonData.ServerName = "$hostname"
 
+        Get-Infomessage "edit $serverpassword  $servercfg" 'info'
         $jsonData.ServerPassword = "$serverpassword"
 
+        Get-Infomessage "edit $maxplayers  $servercfg" 'info'
         $jsonData.MaxPlayers = "$maxplayers"
         # Example: Remove a property
         # $jsonData.PSObject.Properties.Remove("propertyNameToRemove")
+        Get-Infomessage "creating $servercfg" 'info'
         $jsonData | ConvertTo-Json -Depth 10 | Set-Content "$servercfgdir\$servercfg"
 
     }
