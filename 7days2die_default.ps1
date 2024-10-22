@@ -21,7 +21,7 @@ Function New-LaunchScriptSdtdserverPS {
     #                       Appdata\Roaming Directory
     $global:saves           = "7DaysToDie"
     #                       Gamedig Query
-    $global:querytype       = "7d2d"
+    $global:querytype       = "sdtd"
     #                       Game Process
     $global:process         = "7daystodieserver"
     #                       Log Directory
