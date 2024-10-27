@@ -27,13 +27,13 @@ Function New-LaunchScriptNotDserverPS {
     #                       Server Config Directory
     $global:servercfgdir    = "$serverdir\LF\Saved\Config"
     #                       Server Executable
-    $global:executable      = "LFServer"
+    $global:executable      = "LFServer-Win64-Shipping"
     #                       Server Executable Directory
     $global:executabledir   = "$serverdir\LF\Binaries\Win64"
     #                       Gamedig Query
     $global:querytype       = "protocol-valve"
     #                       Game Process
-    $global:process         = "LFServer"
+    $global:process         = "LFServer-Win64-Shipping"
     #                       Log Directory
     $global:logdirectory    = "$serverdir\LF\Saved\Logs"
     #                       Server Log
