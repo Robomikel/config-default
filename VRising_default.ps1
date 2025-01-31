@@ -79,6 +79,8 @@ function Get-vrisingInstallChanges {
     $a.Password = "${serverpassword}" 
     $a.MaxConnectedUsers = ${maxplayers} 
     $a.SaveName = "${worldname}"
+    $a.ListOnSteam = $true
+    $a.ListOnEOS =  $true
     $a.Rcon.Enabled = $true 
     $a.Rcon.Port = ${rconport}
     $a.Rcon.Password = "${rconpassword}"
