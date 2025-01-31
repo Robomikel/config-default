@@ -44,7 +44,7 @@ Function New-LaunchScriptVRisingserverPS {
     #                           Game-Server-Config
     $global:servercfg           = "ServerHostSettings.json"  
     #                           Server Launch Command
-    $global:launchParams        = '@("${executable} -persistentDataPath .\save-data -serverName `"${hostname}`"")'
+    $global:launchParams        = '@("${executable} -persistentDataPath .\save-data -serverName `"${hostname}`" -logFile `"${logdirectory}\${consolelog}`"")'
     #                           = '@("${executable} -persistentDataPath .\save-data -serverName `"${hostname}`" -saveName `"${worldname}`" -logFile `"${logdirectory}\${consolelog}`"")'
     #                           VRisingServer.exe -persistentDataPath .\save-data -serverName "My V Rising Server" -saveName "world1" -logFile ".\logs\VRisingServer.log"
     # Advanced must be set to "0"
