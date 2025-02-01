@@ -14,7 +14,7 @@ Function New-LaunchScriptVRisingserverPS {
     #                           Server Max Players
     $global:maxplayers          = 40
     #                           Server Password
-    $global:serverpassword      = ""
+    $global:serverpassword      = " "
     #                           World Name
     $global:worldname           = "world1"
     #                           Rcon Password
