@@ -10,7 +10,7 @@ Function New-LaunchScriptNotDserverPS {
     #                       Query Port
     $global:queryport       = "27015"
     #                       Admin Password
-    $global:adminpassword   = "$adminpassword"
+    $global:password   = "$adminpassword"
     #                       Maxplayers
     $global:maxplayers      = "16"
     #                       Server Name
